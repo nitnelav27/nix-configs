@@ -7,6 +7,7 @@
                 ./modules/services.nix
                 ./modules/firewall.nix 
                 ../../modules-common/nvidia.nix
+                ../../modules-common/storageOpt.nix
         ];
    
   nixpkgs.config = {

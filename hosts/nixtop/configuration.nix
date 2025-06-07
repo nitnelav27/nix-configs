@@ -10,6 +10,7 @@
                 ./hardware-configuration.nix
                 ./modules/services.nix
                 ./modules/mounts.nix
+                ../../modules-common/storage-opt.nix
         ];
 
         # Activate swap

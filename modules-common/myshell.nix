@@ -27,7 +27,9 @@
 
       autoload -Uz compinit
       compinit
-      eval "$(uv generate-shell-completion zsh)"
+      if [[ "$(hostname -s)" == "nixtop" ]]; then
+        eval "$(uv generate-shell-completion zsh)"
+      fi
       source $ZDOTDIR/plugins/colored-man-pages.plugin.zsh
       '';
     plugins = [ 
