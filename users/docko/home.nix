@@ -9,6 +9,7 @@
   imports = [
                 ../../modules-common/myshell.nix 
                 ../../modules-common/neovim.nix
+                ../../modules-common/git.nix
                 ../../hosts/dockmedia/modules/homePkgs.nix
         ];
   # This value determines the Home Manager release that your configuration is
