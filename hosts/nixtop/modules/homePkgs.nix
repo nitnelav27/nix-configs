@@ -1,0 +1,90 @@
+{ config, lib, pkgs, inputs, ... }: 
+{
+  
+  home.packages = with pkgs; [
+    stdenv
+    btop
+    fastfetch
+    eza
+    tldr
+    duf
+    texlive.combined.scheme-full
+    aspell
+    aspellDicts.en
+    aspellDicts.es
+    bluez
+    bluez-tools
+    blueman
+    calibre
+    cliphist
+    cmake
+    dialog
+    dig
+    emacs
+    electron
+    fd
+    feishin
+    firefox
+    fzf
+    gcc
+    gnumake
+    gnuplot
+    grimblast
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.es_CL
+    hypridle
+    hyprpaper
+    hyprpicker
+    hyprpolkitagent
+    iperf
+    jq
+    killall
+    mako
+    mgba
+    libreoffice-qt
+    libtool
+    nwg-displays
+    nwg-look
+    pyright
+    pwvucontrol
+    ripgrep
+    rofi-wayland
+    scrot
+    shellcheck
+    slack
+    slurp
+    texlab
+    teams-for-linux 
+    thunderbird
+    tree
+    unzip
+    via
+    waybar
+    wl-clipboard
+    wlogout
+    xfce.thunar
+    zathura
+    zoom-us
+    ### Fonts start here
+    barlow
+    fira
+    hasklig
+    source-code-pro
+    material-design-icons
+    material-icons
+    noto-fonts
+    roboto
+    ubuntu-sans
+    ubuntu-sans-mono
+    weather-icons
+    font-awesome
+    noto-fonts-emoji
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.meslo-lg
+    nerd-fonts.symbols-only
+    ### End of fonts
+  ];
+
+  fonts.fontconfig.enable = true;
+}
