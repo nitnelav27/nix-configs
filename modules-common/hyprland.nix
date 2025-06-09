@@ -22,6 +22,8 @@
                         exec-once = [
                                 "$HOME/.config/hypr/scripts/wallpaper-hyprland"
                                 "$HOME/.config/hypr/scripts/xdg_bar"
+                                "wl-paste --type text --watch cliphist store"
+                                "wl-paste --type image --watch cliphist store"
                                 "thunderbird"
                                 "firefox"
                                 "slack"
@@ -143,7 +145,8 @@
                                 "$mainMod SHIFT, Q, exit,"
                                 "$mainMod SHIFT, E, exec, $fileManager"
                                 "$mainMod, V, togglefloating,"
-                                "$mainMod, Space, exec, $menu"
+                                "$mainMod, Space, exec, $menu" # rofi in wayland 
+                                "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
                                 "$mainMod, P, pseudo," # dwindle
                                 "$mainMod, J, togglesplit," # dwindle
                                 "$mainMod SHIFT, K, exec, $SwitchLayout"

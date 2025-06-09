@@ -12,6 +12,7 @@
                 ../../modules-common/hyprland.nix
                 ../../modules-common/hyprlock.nix
                 ../../hosts/nixtop/modules/homePkgs.nix
+                ../../hosts/nixtop/modules/homeServices.nix
                 ../../modules-common/neovim.nix
                 ../../modules-common/git.nix
                 ../../modules-common/mpv.nix
