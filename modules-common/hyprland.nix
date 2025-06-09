@@ -144,7 +144,7 @@
                                 "$mainMod, Q, killactive,"
                                 "$mainMod SHIFT, Q, exit,"
                                 "$mainMod SHIFT, E, exec, $fileManager"
-                                "$mainMod, V, togglefloating,"
+                                "$mainMod SHIFT, F, togglefloating,"
                                 "$mainMod, Space, exec, $menu" # rofi in wayland 
                                 "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
                                 "$mainMod, P, pseudo," # dwindle
