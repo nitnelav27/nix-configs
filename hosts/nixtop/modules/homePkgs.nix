@@ -49,7 +49,6 @@
     pyright
     pwvucontrol
     ripgrep
-    rofi-wayland
     scrot
     shellcheck
     slack
