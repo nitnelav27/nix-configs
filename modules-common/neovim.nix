@@ -204,6 +204,10 @@
                 };
                 statusline.lualine.enable = true;
                 telescope.enable = true;
+                fzf-lua.enable = true;
+                filetree = {
+                    neo-tree.enable = true;
+                };
                 options = {
                     relativenumber = false;
                     cursorline = true;
@@ -217,7 +221,15 @@
                 };
                 lsp.enable = true;
                 languages = {
+                    enableFormat = true;
+                    enableDAP = true;
+                    enableExtraDiagnostics = true;
                     enableTreesitter = true;
+                    bash = {
+                        enable = true;
+                        format.enable = true;
+                        lsp.enable = true;
+                    };
                     nix = {
                         enable = true;
                         format.enable = true;
@@ -227,11 +239,23 @@
                         enable = true;
                         dap.enable = true;
                         format.enable = true;
+                        format.type = "black";
                         lsp.enable = true;
                     };
-                    markdown.enable = true;
+                    markdown = {
+                        enable = true;
+                        format.enable = true;
+                        lsp.enable = true;
+                        extensions = {
+                            markview-nvim.enable = true;
+                            render-markdown-nvim.enable = true;
+                        };
+                    };
                     clang.enable = true;
-                    html.enable = true;
+                    html = {
+                        enable = true;
+                        treesitter.autotagHtml = true;
+                    };
                     lua.enable = true;
                     #tex = {
                     #enable = true;
