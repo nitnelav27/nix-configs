@@ -16,7 +16,7 @@
         ../../modules-common/neovim.nix
         ../../modules-common/git.nix
         ../../modules-common/mpv.nix
-        ./../modules-common/rofi.nix
+        ../../modules-common/rofi.nix
     ];
 
     # This value determines the Home Manager release that your configuration is
