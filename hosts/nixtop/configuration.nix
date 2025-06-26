@@ -9,7 +9,7 @@
                 # Include the results of the hardware scan.
                 ./hardware-configuration.nix
                 ./modules/services.nix
-                ./modules/mounts.nix
+        #./modules/mounts.nix
                 ../../modules-common/storageOpt.nix
         ];
 
@@ -28,7 +28,7 @@
                 useDHCP = false;
                 dhcpcd.enable = false;
                 nameservers = [
-                        "10.27.3.14"
+            #"10.27.3.14"
                         "75.75.75.75"
                         "75.75.75.76"
                 ];

@@ -6,8 +6,8 @@
         enable = true;
         settings = {
             monitor = [
-                "DP-4, 3440x1440@99.98, 2560x0, 1"
-                "DP-5, 2560x1440@59.95, 0x0, 1"
+                "DP-3, 3440x1440@99.98, 0x0, 1"
+                "DP-5, 2560x1440@59.95, 3440x0, 1"
             ];
             ## Local variables
             "$terminal" = "kitty";
@@ -213,11 +213,11 @@
             #
             ##### Workspace rules
             workspace = [
-                "1,monitor:DP-4,default:true"
-                "2,monitor:DP-4"
-                "3,monitor:DP-4"
-                "4,monitor:DP-4"
-                "5,monitor:DP-4"
+                "1,monitor:DP-3,default:true"
+                "2,monitor:DP-3"
+                "3,monitor:DP-3"
+                "4,monitor:DP-3"
+                "5,monitor:DP-3"
                 "6,monitor:DP-5,default:true"
                 "7,monitor:DP-5"
                 "8,monitor:DP-5"
