@@ -3,6 +3,7 @@
 {
   imports = [
                 ./hardware-configuration.nix 
+                ./modules/network.nix
                 ./modules/mounts.nix
                 ./modules/services.nix
                 ./modules/firewall.nix 
@@ -14,22 +15,8 @@
                 allowUnfree = true;
                 nvidia.acceptLicense = true;
         }; 
-  networking = {
-                hostName = "dockmedia";
-                networkmanager = {
-                        enable = true;
-                        dns = "none";
-                };
-                useDHCP = false;
-                dhcpcd.enable = false;
-                nameservers = [
-                        "10.27.3.14"
-                        "75.75.75.75"
-                        "75.75.76.76"
-                ];
-        };
 
-  # Set your time zone.
+    # Set your time zone.
   time.timeZone = "America/New_York";
 
   users = {
