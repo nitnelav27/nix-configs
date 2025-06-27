@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
         HOME = "/home/vsvh";
-        nasLocation = "10.27.27.89";
+        nasLocation = "10.27.81.4";
         commonOpts = [
           "x-systemd.automount"
           "x-systemd.requires=network-online.target"
