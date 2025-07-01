@@ -7,8 +7,8 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        darwin = {
-            url = "github:lnl7/nix-darwin";
+        nix-darwin = {
+            url = "github:nix-darwin/nix-darwin/master";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nvf = {
@@ -18,7 +18,7 @@
         hyprland.url = "github:hyprwm/Hyprland";
     };
 
-    outputs = inputs@{ nixpkgs, home-manager, hyprland, nvf, ... }:
+    outputs = inputs@{ nixpkgs, home-manager, nix-darwin, hyprland, nvf, ... }:
         let
             userAssignments = {
                 nixtop = [ "vsvh" ];
@@ -54,7 +54,7 @@
                 specialArgs = { inherit hostname inputs; };
             };
 
-            mkDarwinHost = hostname: system: darwin.lib.darwinSystem {
+            mkDarwinHost = hostname: system: nix-darwin.lib.darwinSystem {
                 inherit system;
                 modules = [
                     ./hosts/${hostname}/configuration.nix
