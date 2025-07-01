@@ -1,15 +1,15 @@
-{ config, lib, pkgs, input, ... }:
+{ config, pkgs, ... }:
+
 {
     home.packages = with pkgs; [
-        stdenv
-        btop
-        fastfetch
-        eza
-        tldr
-        git
-        duf
-        kitty
-        iperf
+        # macOS-specific packages
+        mas # Mac App Store CLI
+        terminal-notifier
+
+        # Cross-platform packages
+        ripgrep
+        fzf
+
         ### Fonts start here
         barlow
         fira
@@ -31,5 +31,4 @@
     ];
 
     fonts.fontconfig.enable = true;
-
 }
