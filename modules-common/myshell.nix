@@ -21,7 +21,9 @@
             path+=($HOME/.local/bin)
             path+=($HOME/.config/scripts)
             path+=($HOME/.config/emacs/bin)
-            path+=(/usr/local/texlive/2025/bin/x86_64-linux)
+            if [[ "$(hostname -s)" == "mbpro" ]]; then 
+            path+=(/Library/TeX/texbin)
+            fi
             # Enable colors
             autoload -U colors && colors
 

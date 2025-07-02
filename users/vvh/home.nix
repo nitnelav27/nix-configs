@@ -10,7 +10,6 @@
         ../../hosts/mbpro/modules/homePkgs.nix  # Host-specific packages
         ../../modules-common/neovim.nix
         ../../modules-common/git.nix
-        #../../modules-common/mpv.nix
     ];
 
 

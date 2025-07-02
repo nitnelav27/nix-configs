@@ -4,7 +4,7 @@
     programs.kitty = lib.mkForce {
         enable = true;
         font = {
-            name = "JetBrainsMono NF";
+            name = "JetBrainsMonoNL Nerd Font";
             size = 18;
         };
         settings = {

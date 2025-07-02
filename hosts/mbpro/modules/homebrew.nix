@@ -11,6 +11,7 @@
             "microsoft-teams"
             "zoom"
             "adobe-acrobat-reader"
+            "mactex"
         ];
         brews = [
             "imagemagick"
