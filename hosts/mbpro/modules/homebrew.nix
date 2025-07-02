@@ -7,6 +7,10 @@
             "kitty"
             "slack"
             "microsoft-office"
+            "calibre"
+            "microsoft-teams"
+            "zoom"
+            "adobe-acrobat-reader"
         ];
         brews = [
             "imagemagick"

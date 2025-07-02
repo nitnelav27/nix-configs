@@ -18,6 +18,7 @@
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
         mkalias
+        texlive.combined.scheme-full
     ];
 
     ## System Activation script for Aliases

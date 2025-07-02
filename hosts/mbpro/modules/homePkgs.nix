@@ -10,7 +10,34 @@
         ripgrep
         fzf
         fastfetch
-        firefox
+        stdenv
+        btop
+        eza
+        tldr
+        duf
+        aspell
+        aspellDicts.en
+        aspellDicts.es
+        cmake
+        fd
+        gcc
+        gnumake
+        gnuplot
+        hunspell
+        hunspellDicts.en_US
+        hunspellDicts.es_CL
+        iperf
+        jq
+        killall
+        mpv
+        pyright
+        ranger
+        shellcheck
+        texlab
+        tree
+        unzip
+        uv
+        zathura
 
         ### Fonts start here
         barlow
