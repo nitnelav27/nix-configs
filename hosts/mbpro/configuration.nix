@@ -1,6 +1,10 @@
 { config, lib, pkgs, hostname, ... }:
 
 {
+    ## Imports
+    imports = [
+        ./modules/mounts.nix
+    ];
     ## Required for flake use 
     nix.settings.experimental-features = "nix-command flakes";
 
