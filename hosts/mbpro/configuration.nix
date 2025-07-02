@@ -5,6 +5,7 @@
     imports = [
         ./modules/mounts.nix
         ./modules/system.nix
+        ./modules/storageOpt.nix
     ];
     ## Required for flake use 
     nix.settings.experimental-features = "nix-command flakes";
