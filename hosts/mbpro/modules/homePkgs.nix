@@ -9,6 +9,8 @@
         # Cross-platform packages
         ripgrep
         fzf
+        fastfetch
+        firefox
 
         ### Fonts start here
         barlow

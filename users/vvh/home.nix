@@ -13,6 +13,7 @@
         #../../modules-common/mpv.nix
     ];
 
+
     home.stateVersion = "24.11";
 
     home.sessionVariables = {
