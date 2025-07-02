@@ -1,54 +1,27 @@
 { config, lib, pkgs, ... }:
 let
-    HOME = "/Users/vvh";
-    nasLocation = "10.27.81.4";
-    commonOpts = [
-        "noatime"
-        "nfsvers=4.2"
-        "resvport"
-        "soft"
-        "bg"
-        "tcp"
-        #"x-systemd.automount"
-        #"x-systemd.requires=network-online.target"
-    ];
-in
-    {
-    fileSystems = {
-        "${HOME}/.decreto" = {
-            device = "${nasLocation}:/.decreto";
-            fsType = "nfs";
-            options = commonOpts;
-        };
-
-        "${HOME}/nas/calibre" = {
-            device = "${nasLocation}:/calibre";
-            fsType = "nfs";
-            options = commonOpts;
-        };
-
-        "${HOME}/nas/data" = {
-            device = "${nasLocation}:/data";
-            fsType = "nfs";
-            options = commonOpts;
-        };
-
-        "${HOME}/dump" = {
-            device = "${nasLocation}:/dump";
-            fsType = "nfs";
-            options = commonOpts;
-        };
-
-        "${HOME}/docs" = {
-            device = "${nasLocation}:/docs";
-            fsType = "nfs";
-            options = commonOpts;
-        };
-
-        "${HOME}/nas/results" = {
-            device = "${nasLocation}:/results";
-            fsType = "nfs";
-            options = commonOpts;
+    nfsMount = name: device: mountPoint: {
+        serviceConfig = {
+            ProgramArguments = [
+                "/sbin/mount_nfs"
+                "-o" "resvport,soft,bg,tcp,noatime,nfsvers=4.2,noowners"
+                device 
+                mountPoint
+            ];
+            RunAtLoad = true;
+            StandardErrorPath = "/var/log/mount-${name}.err.log";
+            StandardOutPath = "/var/log/mount-${name}.out.log";
         };
     };
-}
+
+in
+    {
+        launchd.daemons = {
+            decreto-share = nfsMount "decreto" "10.27.81.4:/export/.decreto" "/Users/vvh/.decreto/";
+            dump-share = nfsMount "dump" "10.27.81.4:/export/dump" "/Users/vvh/dump";
+            docs-share = nfsMount "docs" "10.27.81.4:/export/docs" "/Users/vvh/docs";
+            calibre-share = nfsMount "calibre" "10.27.81.4:export/calibre" "Users/vvh/nas/calibre";
+            data-share = nfsMount "data" "10.27.81.4:export/data" "Users/vvh/nas/data";
+            results-share = nfsMount "results" "10.27.81.4:export/results" "Users/vvh/nas/results";
+        };
+    }
