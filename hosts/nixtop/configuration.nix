@@ -20,7 +20,7 @@
     }];
 
     # To get ride of the warning when building system 
-    nix.settings.download-buffer-size = 1024*1024;
+    nix.settings.download-buffer-size = 2048*1024;
 
     networking = {
         hostName = "nixtop";
@@ -85,12 +85,12 @@
 
     programs.zsh.enable = true;
     ## Allow unfree pkgs
-    nixpkgs.config = {
-        allowUnfree= true;
-        permittedInsecurePackages = [
-            "electron-33.4.11"
-        ];
-    };
+    #nixpkgs.config = {
+    #    allowUnfree= true;
+    #    permittedInsecurePackages = [
+    #        "electron-33.4.11"
+    #    ];
+    #};
 
     ## Run non-nix executables
     programs.nix-ld = {

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: 
+{ config, pkgs, self, lib, inputs, ... }: 
 {
     programs.nvf = {
         enable = true;
@@ -30,6 +30,7 @@
                     "blink-cmp"
                     "catppuccin"
                     "conform-nvim"
+                    "dressing-nvim"
                     "flash-nvim"
                     "friendly-snippets"
                     "gitsigns-nvim"
@@ -50,8 +51,15 @@
                     pkgs.vimPlugins.cmp-vimtex
                     pkgs.vimPlugins.nvim-notify
                     pkgs.vimPlugins.nvim-treesitter
+                    pkgs.vimPlugins.nvim-dap-python
+                    pkgs.vimPlugins.conform-nvim
+                    pkgs.vimPlugins.nvim-lint
+                    pkgs.vimPlugins.trouble-nvim
                 ];
                 luaConfigPost = ''
+                    -- Configure Python DAP
+                    require('dap-python').setup('python')
+                    -- VIM options
                     vim.g.vimtex_view_method = 'zathura'
                     vim.g.vimtex_compiler_latexmk = {
                         executable = 'latexmk',
@@ -219,7 +227,12 @@
                     shiftwidth = 4;
                     breakindent = true;
                 };
-                lsp.enable = true;
+                lsp = {
+                    enable = true;
+                    trouble = {
+                        enable = true;
+                    };
+                };
                 languages = {
                     enableFormat = true;
                     enableDAP = true;
@@ -241,6 +254,7 @@
                         format.enable = true;
                         format.type = "black";
                         lsp.enable = true;
+                        lsp.server = "pyright";
                     };
                     markdown = {
                         enable = true;
