@@ -16,11 +16,19 @@
     system.stateVersion = 6;
     networking.hostName = hostname;
     
-    ## System Packages
-    nixpkgs.config.allowUnfree = true;
+    ## System Packages 
+    nixpkgs.config = { 
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+    };
     environment.systemPackages = [
         pkgs.mkalias
-    ]; 
+    ] ++ (if pkgs.stdenv.isDarwin then [] else [pkgs.hostname]); 
+
+    ## Environment variables to help with darwin compilation
+    environment.variables = {
+        MACOSX_DEPLOYEMENT_TARGET = "15.5";
+    };
 
         
     ## Services 

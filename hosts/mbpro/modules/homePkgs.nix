@@ -9,7 +9,7 @@
         # Cross-platform packages
         ripgrep
         fzf
-        fastfetch
+        #fastfetch
         stdenv
         btop
         eza
@@ -57,7 +57,7 @@
         nerd-fonts.meslo-lg
         nerd-fonts.symbols-only
         ### End of fonts
-    ];
+    ] ++ (if pkgs.stdenv.isDarwin then [] else [pkgs.hostname]); 
 
     fonts.fontconfig.enable = true;
 }

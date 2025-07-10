@@ -41,13 +41,8 @@
                 inherit system;
                 pkgs = import nixpkgs {
                     system = system;
-                    overlays = [
-                        self.overlays.custom-vim-plugins
-                        # ...other overlays
-                    ];
                     config = {
                         allowUnfree = true;
-                        #permittedInsecurePackages = [ "electron-33.4.11" ];
                     };
                 };
                 modules = [
@@ -99,6 +94,9 @@
                             extraSpecialArgs = { inherit inputs; };
                         };
                     }
+                    {
+                        environment.variables.MACOS_DEPLOYEMENT_TARGET = "15.5";
+                    }
                     nix-homebrew.darwinModules.nix-homebrew {
                         nix-homebrew = {
                             # Install Homebrew under the default prefix
@@ -126,28 +124,6 @@
             };
 
         in {
-            overlays = {
-                custom-vim-plugins = final: prev: {
-                    vimPlugins = prev.vimPlugins // {
-                        mega-none-ls = prev.vimUtils.buildVimPlugin {
-                            name = "mega-none-ls";
-                            src = prev.runCommand "mega-none-ls-src" {} ''
-                                mkdir -p $out
-                                cp -r ${prev.vimPlugins.none-ls-nvim}/. $out/
-                                cp -r ${prev.vimUtils.buildVimPlugin {
-                                    name = "none-ls-extras-nvim";
-                                    src = prev.fetchFromGitHub {
-                                        owner = "nvimtools";
-                                        repo = "none-ls-extras.nvim";
-                                        rev = "924fe88a9983c7d90dbb31fc4e3129a583ea0a90";
-                                        sha256 = "0g25js6dbhxq1pf1g7x6lz1p9szdky792z5jxi5gkkkpx3dy149q"; # correct hash!
-                                    };
-                                }}/. $out/
-                            '';
-                        };
-                    };
-                };
-            };                                
             nixosConfigurations = {
                 nixtop = mkHost "nixtop" "x86_64-linux";
                 dockmedia = mkHost "dockmedia" "x86_64-linux";
