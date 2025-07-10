@@ -43,6 +43,7 @@
                     system = system;
                     config = {
                         allowUnfree = true;
+                        nvidia.acceptLicense = true;
                     };
                 };
                 modules = [

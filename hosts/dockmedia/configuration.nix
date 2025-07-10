@@ -9,12 +9,7 @@
                 ./modules/firewall.nix 
                 ../../modules-common/nvidia.nix
                 ../../modules-common/storageOpt.nix
-        ];
-   
-  nixpkgs.config = {
-                allowUnfree = true;
-                nvidia.acceptLicense = true;
-        }; 
+        ]; 
 
     # Set your time zone.
   time.timeZone = "America/New_York";
