@@ -20,6 +20,7 @@
                 nixtop = [ "vsvh" ];
                 dockmedia = [ "docko" ];
                 mbpro = [ "vvh" ];
+		rengo = [ "rengo" ];
             };
             
             mkHost = hostname: system: nixpkgs.lib.nixosSystem {
@@ -61,6 +62,7 @@
             nixosConfigurations = {
                 nixtop = mkHost "nixtop" "x86_64-linux";
                 dockmedia = mkHost "dockmedia" "x86_64-linux";
+		rengo = mkHost "rengo" "x86_64-linux";
             };
         };
 }
