@@ -37,6 +37,7 @@
         tree
         unzip
         uv
+	wget
         zathura
 
         ### Fonts start here
@@ -57,7 +58,7 @@
         nerd-fonts.meslo-lg
         nerd-fonts.symbols-only
         ### End of fonts
-    ] ++ (if pkgs.stdenv.isDarwin then [] else [pkgs.hostname]); 
+    ]; 
 
     fonts.fontconfig.enable = true;
 }

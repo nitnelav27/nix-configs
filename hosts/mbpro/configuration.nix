@@ -21,9 +21,10 @@
         allowUnfree = true;
         allowUnsupportedSystem = true;
     };
-    environment.systemPackages = [
-        pkgs.mkalias
-    ] ++ (if pkgs.stdenv.isDarwin then [] else [pkgs.hostname]); 
+    environment.systemPackages = with pkgs; [
+        mkalias
+        vim
+    ]; 
 
     ## Environment variables to help with darwin compilation
     environment.variables = {
@@ -35,9 +36,9 @@
     services = {
         openssh = {
             enable = true;
-            extraConfig = ''
-                Port 1186
-            '';
+            #extraConfig = ''
+            #    Port 1186
+            #'';
         };
     };
   

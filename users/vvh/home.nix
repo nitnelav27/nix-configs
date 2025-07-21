@@ -6,9 +6,10 @@
 
     imports = [
         ../../modules-common/terminals.nix
-        #../../modules-common/myshell.nix
+        ../../modules-common/myshell.nix
         ../../hosts/mbpro/modules/homePkgs.nix  # Host-specific packages
-        ../../modules-common/neovim.nix
+        #../../modules-common/neovim.nix
+	../../modules-common/nixvim.nix
         ../../modules-common/git.nix
     ];
 

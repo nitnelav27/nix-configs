@@ -12,6 +12,8 @@
             "zoom"
             "adobe-acrobat-reader"
             "mactex"
+	    "whatsapp"
+	    "via"
         ];
         brews = [
             "imagemagick"
