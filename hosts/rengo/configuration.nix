@@ -9,6 +9,7 @@
         ./hardware-configuration.nix
         ./modules/mounts.nix
         ./modules/services.nix
+        ./modules/firewall.nix
         #./modules/gnome.nix
     ];
 
