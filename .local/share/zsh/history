@@ -104,3 +104,11 @@ exit
 : 1753208907:0;git add --all
 : 1753208926:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
 : 1753208970:0;git add --all
+: 1753208984:0;git commit -m "enabled firewall"
+: 1753208989:0;git push nixdots main
+: 1753216710:0;nvim hosts/rengo/modules/firewall.nix
+: 1753218618:0;nvim ~/docker/services/sonarr.yml
+: 1753218696:0;ranger /storage/tv
+: 1753218888:0;nvim ~/docker/services/sonarr.yml
+: 1753220346:0;ranger /storage/film
+: 1753221504:0;git add --all
