@@ -44,8 +44,8 @@
         libreoffice-qt
         libtool
         luajitPackages.luacheck
-        #nwg-displays
-        #nwg-look
+        nwg-displays
+        nwg-look
         p7zip
         python3
         python3Packages.pip 

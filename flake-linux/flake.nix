@@ -33,8 +33,8 @@
                     };
                 };
                 modules = [
-                    ./hosts/${hostname}/configuration.nix 
-                    ./hosts/${hostname}/hardware-configuration.nix 
+                    ../hosts/${hostname}/configuration.nix 
+                    ../hosts/${hostname}/hardware-configuration.nix 
                     home-manager.nixosModules.home-manager {
                         home-manager = {
                             useGlobalPkgs = true;
@@ -47,7 +47,7 @@
                                 value = {
                                     imports = [
                                         nvf.homeManagerModules.default
-                                        ./users/${user}/home.nix
+                                        ../users/${user}/home.nix
                                     ];
                                 };
                                 }) assignedUsers);

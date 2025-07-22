@@ -1,0 +1,99 @@
+nvim users/rengo/home.nix
+ls -ahl .local/share/zsh
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+fastfetch
+lsblk
+nvim hosts/rengo/modules/homeServices.nix
+nvim hosts/rengo/modules/gnome.nix
+nvim hosts/rengo/configuration.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+git add --all
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+nvim hosts/nixtop/modules/services.nix
+nvim hosts/nixtop/configuration.nix
+nvim hosts/rengo/configuration.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+sudo reboot
+nvim hosts/rengo/configuration.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+sudo reboot
+tree
+nvim hosts/rengo/modules/homePkgs.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+nvim hosts/rengo/configuration.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+nvim hosts/rengo/hardware-configuration.nix
+nvim hosts/rengo/modules/gnome.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+nvim hosts/rengo/modules/gnome.nix
+nvim hosts/rengo/configuration.nix
+sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+sudo reboot
+: 1753143252:0;sudo nix flake update
+: 1753143261:0;cd flake-linux
+: 1753146204:0;nvim hosts/nixtop/modules/services.nix
+: 1753146274:0;nvim hosts/rengo/configuration.nix
+: 1753146317:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753146382:0;sudo systemctl status docker
+: 1753146396:0;ranger docker
+: 1753146457:0;nvim hosts/rengo/modules/mounts.nix
+: 1753146482:0;sudo blkid /dev/sda
+: 1753146506:0;sudo blkid /dev/sdb
+: 1753146517:0;sudo blkid /dev/sdc
+: 1753146531:0;sudo blkid /dev/sdd
+: 1753146543:0;sudo blkid /dev/sde
+: 1753146553:0;lsblk
+: 1753146560:0;sudo blkid /dev/sdf
+: 1753146599:0;sudo mount /dev/sde ~/flashdrive
+: 1753146632:0;sudo umount -f /dev/sde
+: 1753146643:0;sudo mount /dev/sdf ~/flashdrive
+: 1753146762:0;sudo mkdir -p /storage/{.decreto,torrents,film,tv,nas}
+: 1753146797:0;id
+: 1753146830:0;sudo chown -R rengo:rengo /storage
+: 1753146833:0;l -ahl /
+: 1753146838:0;l -ahl /storage
+: 1753147625:0;nvim hosts/rengo/configuration.nix
+: 1753147642:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753147706:0;sudo reboot
+: 1753148131:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148172:0;nvim hosts/dockmedia/modules/mounts.nix
+: 1753148269:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148291:0;sudo blkid /dev/sdc
+: 1753148303:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148350:0;sudo blkid /dev/sdf
+: 1753148361:0;sudo blkid /dev/sda
+: 1753148369:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148412:0;sudo blkid /dev/sdb
+: 1753148440:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148476:0;sudo blkid /dev/sde
+: 1753148485:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148636:0;sudo blkid /dev/sdf
+: 1753148654:0;lsblk
+: 1753148675:0;sudo fdisk /dev/sdf
+: 1753148866:0;sudo mkfs.ext4 -L NAS /dev/sdf1
+: 1753148871:0;lsblk
+: 1753148879:0;sudo blkid /dev/sdf1
+: 1753148890:0;nvim hosts/rengo/modules/mounts.nix
+: 1753148920:0;git add --all
+: 1753148929:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753149018:0;nvim hosts/rengo/configuration.nix
+: 1753149037:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753150723:295;ranger
+: 1753151043:4;sudo docker compose -f ~/docker/compose.yml up -d
+: 1753151062:13;nvim compose.yml
+: 1753151076:27;sudo docker compose -f ~/docker/compose.yml up -d
+: 1753152711:0;cd ~/.config/nixdots
+: 1753152742:0;nvim hosts/rengo/modules/homeServices.nix
+: 1753153527:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753153581:0;nvim users/rengo/home.nix
+: 1753153616:0;mv hosts/rengo/modules/homeServices.nix hosts/rengo/modules/services.nix
+: 1753153623:0;nvim users/rengo/home.nix
+: 1753153643:0;nvim hosts/rengo/configuration.nix
+: 1753153665:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753153675:0;git add --all
+: 1753153678:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753153714:0;nvim hosts/rengo/modules/services.nix
+: 1753153732:0;sudo nixos-rebuild switch --flake ~/.config/nixdots/flake-linux/#rengo
+: 1753153785:0;sudo smbpasswd -a rengo
+: 1753153953:0;nvim hosts/rengo/modules/services.nix
+: 1753154069:0;git add --all
