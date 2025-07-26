@@ -112,3 +112,16 @@ exit
 : 1753218888:0;nvim ~/docker/services/sonarr.yml
 : 1753220346:0;ranger /storage/film
 : 1753221504:0;git add --all
+: 1753491814:3;git clone git@github.com:nitnelav27/nix-configs.git nixdots
+: 1753491821:0;cd nixdots
+: 1753491835:0;git remote rename origin nixdots
+: 1753491840:0;git remote -v
+: 1753491857:0;sudo nix flake update --flake ./flake-macos
+: 1753491892:0;nvim hosts/mbpro/modules/homePkgs.nix
+: 1753491920:0;sudo darwin-rebuild switch --flake ~/.config/nixdots/flake-macos/#mbpro
+: 1753491942:0;nvim hosts/mbpro/modules/homePkgs.nix
+: 1753491957:0;brew search rpi-imager
+: 1753491969:0;brew search raspberry
+: 1753491984:0;nvim hosts/mbpro/modules/homebrew.nix
+: 1753492003:0;sudo darwin-rebuild switch --flake ~/.config/nixdots/flake-macos/#mbpro
+: 1753548465:0;git add --all
