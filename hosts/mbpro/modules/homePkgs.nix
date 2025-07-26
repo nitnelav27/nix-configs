@@ -11,6 +11,7 @@
         fzf
         #fastfetch
         stdenv
+        bat
         btop
         eza
         tldr

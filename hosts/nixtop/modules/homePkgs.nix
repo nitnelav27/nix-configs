@@ -11,6 +11,7 @@
         aspell
         aspellDicts.en
         aspellDicts.es
+        bat
         bluez
         bluez-tools
         blueman
