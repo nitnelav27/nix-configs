@@ -10,7 +10,7 @@
         dotDir = ".config/zsh";
         history.size = 1000;
         history.save = 10000;
-        history.path = "~/.local/share/zsh/history";
+        history.path = "$HOME/.local/share/zsh/history";
         history.ignorePatterns = [ "rm *" "pkill *" "l *" "cp *" ];
         history.ignoreDups = true;
         shellAliases = {

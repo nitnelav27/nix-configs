@@ -17,11 +17,6 @@
                 device = "/dev/disk/by-uuid/fe7e2bc1-ed3b-4338-9416-b174306f47b6";
                 fsType = "ext4";
         };
-  ## Decreto HDD
-  fileSystems."/storage/.decreto" = {
-                device = "/dev/disk/by-uuid/fff5bd8c-7604-4c57-81ba-62b4ccde77cb";
-                fsType = "ext4";
-        };
   ## TORRENTS SSD
   fileSystems."/storage/torrents" = {
                 device = "/dev/disk/by-uuid/5d9e23b0-c3de-40fb-9881-abfb15841f69";

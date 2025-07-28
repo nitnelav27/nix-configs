@@ -19,20 +19,10 @@
                     "map to guest" = "bad user";
                 };
                 "decree" = {
-                    "path" = "/storage/.decreto";
+                    "path" = "/storage/nas/.decreto";
                     "browseable" = "yes";
                     "read only" = "no";
                     "guest ok" = "no";
-                    "create mask" = "0644";
-                    "directory mask" = "0755";
-                    "force user" = "rengo";
-                    "force group" = "rengo";
-                };
-                "private" = {
-                    "path" = "/storage/nas";
-                    "browseable" = "yes";
-                    "read only" = "no";
-                    "guest ok" = "yes";
                     "create mask" = "0644";
                     "directory mask" = "0755";
                     "force user" = "rengo";
@@ -52,6 +42,15 @@
             # ^^ Not one hundred percent sure if this is needed- if it aint broke, don't fix it
             enable = true;
             openFirewall = true;
+        };
+        openssh = {
+            enable = true;
+            ports = [ 9273 ];
+            settings = {
+                PasswordAuthentication = true;
+                KbdInteractiveAuthentication = true;
+                PermitRootLogin = "no";
+            };
         };
     };
 }
