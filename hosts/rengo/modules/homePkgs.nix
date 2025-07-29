@@ -27,6 +27,8 @@
         firefox
         fzf
         gcc
+        gnome-tweaks 
+        gnome-weather 
         gnumake
         gnuplot
         grimblast
