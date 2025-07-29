@@ -7,7 +7,7 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        dotDir = ".config/zsh";
+        dotDir = "${config.home.homeDirectory}/.config/zsh";
         history.size = 1000;
         history.save = 10000;
         history.path = "$HOME/.local/share/zsh/history";
