@@ -24,6 +24,7 @@
     environment.systemPackages = with pkgs; [
         mkalias
         vim
+	home-manager
     ]; 
 
     ## Environment variables to help with darwin compilation
