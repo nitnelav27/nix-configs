@@ -55,6 +55,7 @@
                                 name = user;
                                 value = {
                                     imports = [
+					#nvf.homeManagerModules.default
                                         nixvim.homeManagerModules.nixvim
                                         ../users/${user}/home.nix
                                     ];
