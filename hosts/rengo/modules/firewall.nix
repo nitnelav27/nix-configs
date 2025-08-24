@@ -2,6 +2,7 @@
 
 let
     portList = [
+        1186 ## remote ssh
         5201 ## iperf
         6767 ## bazarr
         7878 ## radarr
