@@ -20,6 +20,7 @@
         aspellDicts.en
         aspellDicts.es
         cmake
+        emacs
 	fastfetch
         fd
         gcc

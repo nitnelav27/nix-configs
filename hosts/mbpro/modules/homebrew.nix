@@ -14,7 +14,8 @@
             "mactex"
 	    "whatsapp"
 	    "via"
-	    "raspberry-pi-imager"
+            "raspberry-pi-imager"
+            "ollama"
         ];
         brews = [
             "imagemagick"
