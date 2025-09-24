@@ -3,7 +3,7 @@
 {
     programs.rofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
+        package = pkgs.rofi;
         cycle = true;
         font = "Fira Sans 15";
         theme = ./rofi-launcher-theme.rasi;
