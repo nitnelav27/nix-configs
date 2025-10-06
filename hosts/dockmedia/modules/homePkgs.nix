@@ -11,6 +11,10 @@
         duf
         kitty
         iperf
+        cuetools
+        shntool
+        flac
+        xsel
         ### Fonts start here
         barlow
         fira
