@@ -78,6 +78,7 @@
         BROWSER = "firefox";
         NASDATA = "$HOME/nas/data";
         NASRES = "$HOME/nas/results";
+        SHELL = "${pkgs.zsh}/bin/zsh";
     };
 
     # Let Home Manager install and manage itself.
