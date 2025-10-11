@@ -41,7 +41,7 @@
         jq
         killall
         mako
-        mgba
+        #mgba
         libreoffice-qt
         libtool
         luajitPackages.luacheck
