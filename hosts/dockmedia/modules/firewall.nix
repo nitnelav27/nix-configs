@@ -18,18 +18,7 @@ let
         8989 ## sonarr
         9696 ## prowlarr
         20048
-        36403 ## AirVPN
-        ### Ubiquiti starts here
-        8443
-        3478
-        10001
-        7080
-        2900
-        8843
-        8880
-        6789
-        5514
-        ### End ubiquiti
+        51820 ## Proton VPN
     ];
 
 in
