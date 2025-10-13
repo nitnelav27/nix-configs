@@ -18,7 +18,7 @@ let
         8989 ## sonarr
         9696 ## prowlarr
         20048
-        51820 ## Proton VPN
+        #43511 ## Proton VPN
     ];
 
 in
