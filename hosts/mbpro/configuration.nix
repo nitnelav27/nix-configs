@@ -29,7 +29,7 @@
 
     ## Environment variables to help with darwin compilation
     environment.variables = {
-        MACOSX_DEPLOYEMENT_TARGET = "15.5";
+        MACOSX_DEPLOYEMENT_TARGET = "26.0.1";
     };
 
         
