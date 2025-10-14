@@ -8,6 +8,7 @@
         tldr
         duf
         texlive.combined.scheme-full
+        aonsoku
         aspell
         aspellDicts.en
         aspellDicts.es
