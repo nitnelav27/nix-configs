@@ -8,7 +8,6 @@
         tldr
         duf
         texlive.combined.scheme-full
-        aonsoku
         aspell
         aspellDicts.en
         aspellDicts.es
@@ -63,6 +62,7 @@
         shellcheck
         slack
         slurp
+        supersonic-wayland
         texlab
         teams-for-linux 
         thunderbird
