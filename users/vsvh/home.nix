@@ -17,6 +17,7 @@
         ../../modules-common/git.nix
         ../../modules-common/mpv.nix
         ../../modules-common/rofi.nix
+        ../../modules-common/vscode.nix 
     ];
 
     # This value determines the Home Manager release that your configuration is

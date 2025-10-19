@@ -69,6 +69,7 @@
         tree
         unzip
         via
+        vscode
         waybar
         wl-clipboard
         wlogout
