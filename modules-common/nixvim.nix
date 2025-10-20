@@ -82,7 +82,6 @@
       noice.enable = true;
       nui.enable = true;
       lint.enable = true;
-      lspconfig.enable = true;
       ts-autotag.enable = true;
       #plenary-nvim
       snacks.enable = true;
@@ -94,6 +93,14 @@
       notify.enable = true;
       treesitter.enable = true;
       dap-python.enable = true;
+      lsp = {
+        enable = true;
+        servers = {
+          atopile = {
+            enable = false;
+          };
+        };
+      };
     };
 
     # Lua configuration
@@ -115,15 +122,16 @@
     # Plugin-specific configuration
     
     # LSP and language configuration
-    lsp = {
-      servers = {
-        pyright = {
-          enable = true;
-          settings = { };
-        };
+    #lsp = {
+    #  servers = {
+    #    pyright = {
+    #      enable = true;
+    #      config = { };
+    #    };
+    #    atopile.enable = false;
         # Add other LSP servers as needed
-      };
-    };
+    #  };
+    #};
 
     # Treesitter
     #treesitter = {

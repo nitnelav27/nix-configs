@@ -8,8 +8,8 @@
         ../../modules-common/terminals.nix
         ../../hosts/mbpro/modules/myshell.nix
         ../../hosts/mbpro/modules/homePkgs.nix  # Host-specific packages
-        #../../modules-common/neovim.nix
-	../../modules-common/nixvim.nix
+        ../../modules-common/neovim.nix
+        #../../modules-common/nixvim.nix
         ../../modules-common/git.nix
     ];
 

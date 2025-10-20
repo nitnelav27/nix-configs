@@ -22,26 +22,37 @@
             url = "github:homebrew/homebrew-cask";
             flake = false;
         };
-        #nvf = {
-        #    url = "github:notashelf/nvf";
-        #    inputs.nixpkgs.follows = "nixpkgs";
+        nvf = {
+            url = "github:notashelf/nvf";
+            #inputs.nixpkgs.follows = "nixpkgs";
+        };
+        #nixvim = {
+        #   url = "github:nix-community/nixvim";
+        #   inputs.nixpkgs.follows = "nixpkgs";
         #};
-	nixvim = {
-  	   url = "github:nix-community/nixvim";
-	   inputs.nixpkgs.follows = "nixpkgs";
-	};
     };
 
-    outputs = inputs@{ nixpkgs, home-manager, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, nixvim, self, ... }:
+    outputs = inputs@{ nixpkgs, home-manager, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, nvf, self, ... }:
+    let
+      userAssignments = {
+        nixtop = [ "vsvh" ];
+        dockmedia = [ "docko" ];
+        mbpro = [ "vvh" ];
+      };
+      mkDarwinHost = hostname: system:
         let
-            userAssignments = {
-                nixtop = [ "vsvh" ];
-                dockmedia = [ "docko" ];
-                mbpro = [ "vvh" ];
-            };
-            
-            mkDarwinHost = hostname: system: nix-darwin.lib.darwinSystem {
-                inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                prettier = prev.nodePackages.prettier;
+              })
+            ];
+          };
+        in
+        nix-darwin.lib.darwinSystem {
+              inherit system pkgs;
                 modules = [
                     ../hosts/${hostname}/configuration.nix
                     home-manager.darwinModules.home-manager {
@@ -55,8 +66,8 @@
                                 name = user;
                                 value = {
                                     imports = [
-					#nvf.homeManagerModules.default
-                                        nixvim.homeManagerModules.nixvim
+					nvf.homeManagerModules.default
+                                        #nixvim.homeManagerModules.nixvim
                                         ../users/${user}/home.nix
                                     ];
                                 };
