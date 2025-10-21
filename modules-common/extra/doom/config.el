@@ -6,18 +6,9 @@
 
 ;(display-time 1)
 
-(map! :leader
-      :desc "Find files the usual way"
-      :g "b" #'ivy-switch-buffer)
-
-(if (eq system-type 'darwin)
-    (setq +latex-viewers '(pdf-tools))
-  )
+(setq +latex-viewers '(zathura))
 
 (delete-selection-mode 1)
-
-(if (eq system-type 'darwin)
-    (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
 
 (setq fancy-splash-image "~/.config/doom/smithers.png")
 
@@ -191,13 +182,13 @@
 ;(use-package! lsp-pyright
 ;  :after lsp-mode)
 
-(if (eq system-type 'gnu/linux)
-    (setq shell-file-name "/bin/zsh"
-      eshell-aliases-file "~/.config/zsh/aliases"
-      eshell-syntax-highlighting-global-mode t
-      eshell-visual-commands '("zsh" "ssh")
-      vterm-max-scrollback 5000)
-    )
+;(if (eq system-type 'gnu/linux)
+;    (setq shell-file-name "/bin/zsh"
+;      eshell-aliases-file "~/.config/zsh/aliases"
+;      eshell-syntax-highlighting-global-mode t
+;      eshell-visual-commands '("zsh" "ssh")
+;      vterm-max-scrollback 5000)
+;    )
 
 (map! :leader
       :desc "open a vterm"

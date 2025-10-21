@@ -22,30 +22,16 @@ In this block I will put every global setting to change some behavior that i don
 ;(display-time 1)
 #+end_src
 
-#+begin_src emacs-lisp
-(map! :leader
-      :desc "Find files the usual way"
-      :g "b" #'ivy-switch-buffer)
-#+end_src
 * PDF Viewer
-This will only be used in MacOs
+Default pdf viewer for Linux
 #+begin_src emacs-lisp
-(if (eq system-type 'darwin)
-    (setq +latex-viewers '(Zathura))
-  )
+(setq +latex-viewers '(zathura))
 #+end_src
 * Aesthetics
 As the section title suggest, everything that controls how Emacs looks like should be here.
 #+begin_src emacs-lisp
 (delete-selection-mode 1)
 #+end_src
-** Start in fullscreen (only for mac)
-The idea is that whenever I start Emacs, it starts in fullscreen only if my OS is MacOs
-#+begin_src emacs-lisp
-(if (eq system-type 'darwin)
-    (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
-#+end_src
-
 ** Splash Image
 Insert an image instead of the ASCII art used by default
 #+begin_src emacs-lisp
@@ -119,6 +105,7 @@ This package just makes your cursor seem to highlight whenever it changes positi
              :yield     "nil"
              )
 #+end_src
+* LaTeX
 * ORG mode
 The main reason to use Emacs.
 #+begin_src emacs-lisp
@@ -295,13 +282,13 @@ Use Python as if this were a proper IDE.
 * Terminal emulator in Emacs
 This configuration applies to my eshell interpreter. My goal here is to remain in Emacs while I do something quick in my terminal.
 #+begin_src emacs-lisp
-(if (eq system-type 'gnu/linux)
-    (setq shell-file-name "/bin/zsh"
-      eshell-aliases-file "~/.config/zsh/aliases"
-      eshell-syntax-highlighting-global-mode t
-      eshell-visual-commands '("zsh" "ssh")
-      vterm-max-scrollback 5000)
-    )
+;(if (eq system-type 'gnu/linux)
+;    (setq shell-file-name "/bin/zsh"
+;      eshell-aliases-file "~/.config/zsh/aliases"
+;      eshell-syntax-highlighting-global-mode t
+;      eshell-visual-commands '("zsh" "ssh")
+;      vterm-max-scrollback 5000)
+;    )
 #+end_src
 UPDATE: I think for now I will stick to =vterm=, which looks exactly like my usual terminal emulator
 #+begin_src emacs-lisp

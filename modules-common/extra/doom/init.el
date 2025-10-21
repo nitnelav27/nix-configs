@@ -21,11 +21,11 @@
 
        :completion
        (company           ; the ultimate code completion backend
-        +childframe)
+        +childframe
+        +tng)
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy               ; a search engine for love and life
-        +fuzzy
+       (vertico               ; a search engine for love and life
         +childframe
         +icons)
 
@@ -34,7 +34,9 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       (emoji +unicode)  ; 🙂
+       (emoji +unicode   ; 🙂
+        +ascii
+        +github)
        ;;fill-column       ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
@@ -72,7 +74,9 @@
        word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       (dired +icons)    ; making dired pretty [functional]
+       (dired            ; making dired pretty [functional]
+        +dirvish
+        +icons)
        electric          ; smarter, keyword-based electric-indent
        ibuffer         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
@@ -85,10 +89,12 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       syntax              ; tasing you for every semicolon you forget
+       (syntax            ; tasing you for every semicolon you forget
+        +childframe)
        (spell             ; tasing you for misspelling mispelling
-        +aspell)
-       ;;grammar           ; tasing grammar mistake every you make
+        +aspell
+        +everywhere)
+       grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
@@ -147,8 +153,9 @@
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        (latex             ; writing papers in Emacs has never been so fun
-        +latexmk
-        +lsp)
+        +lsp
+        +fold
+        +cdlatex)
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
@@ -169,6 +176,7 @@
        ;;purescript        ; javascript, but functional
        (python            ; beautiful is better than ugly
         +lsp
+        +cython
         +pyright)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs

@@ -51,12 +51,11 @@
 
 (package! lsp-mode)
 (package! lsp-ui)
-(package! lsp-ivy)
 (package! gnuplot)
 (package! yasnippet)
 (package! auto-yasnippet)
 (package! doom-snippets)
-(package! ivy)
+(package! xenops)
 (package! org-ref
   :recipe (:host github :repo "jkitchin/org-ref"))
 (package! doi-utils

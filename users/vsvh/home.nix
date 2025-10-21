@@ -32,16 +32,34 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+        doom = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/doom;
+            target = ".config/doom";
+        };
+        matplotlib = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/matplotlib;
+            target = ".config/matplotlib";
+        };
+        jupyter = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/jupyter;
+            target = ".config/jupyter";
+        };
+        scripts = {
+            enable = true;
+            executable = true;
+            recursive = true;
+            source = ../../modules-common/extra/scripts;
+            target = ".config/scripts";
+        };
     };
 
     # Home Manager can also manage your environment variables through
