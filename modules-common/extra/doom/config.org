@@ -31,7 +31,7 @@ In this block I will put every global setting to change some behavior that i don
 This will only be used in MacOs
 #+begin_src emacs-lisp
 (if (eq system-type 'darwin)
-    (setq +latex-viewers '(zathura))
+    (setq +latex-viewers '(Zathura))
   )
 #+end_src
 * Aesthetics
