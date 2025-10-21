@@ -21,7 +21,7 @@
         aspellDicts.es
         cmake
         emacs
-	fastfetch
+	    fastfetch
         fd
         gcc
         gnumake
@@ -40,7 +40,7 @@
         tree
         unzip
         uv
-	wget
+	    wget
         zathura
 
         ### Fonts start here

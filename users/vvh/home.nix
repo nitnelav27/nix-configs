@@ -32,5 +32,15 @@
         BROWSER = "firefox";
     };
 
+    home.file = {
+        doom = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/doom;
+            target = ".config/doom";
+        };
+    };
+
     programs.home-manager.enable = true;
 }
