@@ -32,7 +32,7 @@
             if [[ "$(hostname -s)" == "nixtop" ]]; then
             eval "$(uv generate-shell-completion zsh)"
             fi
-            source $ZDOTDIR/plugins/colored-man-pages.plugin.zsh
+            #source $ZDOTDIR/plugins/colored-man-pages.plugin.zsh
         '';
         plugins = [
             {
@@ -48,6 +48,16 @@
                 name = "vi-mode";
 	            src = pkgs.zsh-vi-mode;
 	            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+            }
+            {
+                name = "colorize";
+                src = ../modules-common/extra/zsh-plugins;
+                file = "colorize.plugin.zsh";
+            }
+            {
+                name = "colored-man-pages";
+                src = ../modules-common/extra/zsh-plugins;
+                file = "colored-man-pages.plugin.zsh";
             }
         ];
     };
