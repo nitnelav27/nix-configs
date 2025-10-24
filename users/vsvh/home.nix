@@ -60,6 +60,13 @@
             source = ../../modules-common/extra/scripts;
             target = ".config/scripts";
         };
+        figlet-fonts = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/figlet_fonts;
+            target = ".config/figlet_fonts";
+        };
     };
 
     # Home Manager can also manage your environment variables through

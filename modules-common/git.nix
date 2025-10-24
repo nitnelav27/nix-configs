@@ -3,10 +3,12 @@
 {
     programs.git = {
         enable = true;
-        userName = "Valentin Vergara Hidd";
-        userEmail = "valentinvergara@gmail.com";
-        extraConfig = {
+        settings = {
             credential.helper = "store";
+            user = {
+                name = "Valentin Vergara Hidd";
+                email = "valentinvergara@gmail.com";
+            };
         };
     };
 }

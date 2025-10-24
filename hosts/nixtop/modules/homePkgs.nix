@@ -15,7 +15,7 @@
         bluez
         bluez-tools
         blueman
-        calibre
+        #calibre
         cliphist
         cmake
         dialog
