@@ -10,7 +10,7 @@
         ../../hosts/mbpro/modules/homePkgs.nix  # Host-specific packages
         ../../modules-common/neovim.nix
         #../../modules-common/nixvim.nix
-        ../../modules-common/git.nix
+        ../../hosts/mbpro/modules/git.nix
     ];
 
 
@@ -39,6 +39,34 @@
             recursive = true;
             source = ../../modules-common/extra/doom;
             target = ".config/doom";
+        };
+        matplotlib = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/matplotlib;
+            target = ".config/matplotlib";
+        };
+        jupyter = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/jupyter;
+            target = ".config/jupyter";
+        };
+        scripts = {
+            enable = true;
+            executable = true;
+            recursive = true;
+            source = ../../modules-common/extra/scripts;
+            target = ".config/scripts";
+        };
+        figlet-fonts = {
+            enable = true;
+            executable = false;
+            recursive = true;
+            source = ../../modules-common/extra/figlet_fonts;
+            target = ".config/figlet_fonts";
         };
     };
 
