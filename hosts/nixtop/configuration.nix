@@ -9,7 +9,7 @@
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         ./modules/services.nix
-        ./modules/mounts.nix
+        #./modules/mounts.nix
         ../../modules-common/storageOpt.nix
     ];
 
@@ -20,7 +20,7 @@
     }];
 
     # To get ride of the warning when building system 
-    nix.settings.download-buffer-size = 2048*1024;
+    nix.settings.download-buffer-size = 4096*1024;
 
     networking = {
         hostName = "nixtop";
@@ -73,7 +73,7 @@
                 description = "Main user for desktop computer";
                 isNormalUser = true;
                 group = "vsvh";
-                homeMode = "755";
+                homeMode = "764";
                 shell = pkgs.zsh;
                 extraGroups = [
                     "wheel"
@@ -84,14 +84,6 @@
     };
 
     programs.zsh.enable = true;
-    ## Allow unfree pkgs
-    #nixpkgs.config = {
-    #    allowUnfree= true;
-    #    permittedInsecurePackages = [
-    #        "electron-33.4.11"
-    #    ];
-    #};
-
     ## Run non-nix executables
     programs.nix-ld = {
         enable = true;
@@ -106,7 +98,7 @@
         enable32Bit = true;
         extraPackages = with pkgs; [
             intel-media-driver
-            vaapiVdpau
+            libva-vdpau-driver
             libvdpau-va-gl
         ];
     };
@@ -120,13 +112,14 @@
         home-manager
         fastfetch 
         ranger
-        libsForQt5.qt5.qtgraphicaleffects
+        sddm-astronaut
+        #libsForQt5.qt5.qtgraphicaleffects
         uv
-        (catppuccin-sddm.override {
-            flavor = "frappe";
-            font = "Fira Sans";
-            fontSize = "15";
-        })
+        #(catppuccin-sddm.override {
+        #    flavor = "frappe";
+        #    font = "Fira Sans";
+        #    fontSize = "15";
+        #})
     ];
 
     # Some programs need SUID wrappers, can be configured further or are

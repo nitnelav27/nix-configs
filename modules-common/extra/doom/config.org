@@ -14,7 +14,7 @@ To start, my personal information
       user-mail-address "valentinvergara@gmail.com")
 #+end_src
 * Basic Settings
-In this block I will put every global setting to change some behavior that i don't quite like about plain Emacs
+In this block I will put every global setting to change some behavior that I don't quite like about plain Emacs
 #+begin_src emacs-lisp
 (setq evil-want-fine-undo t
       auto-save-default t)
@@ -41,7 +41,7 @@ Insert an image instead of the ASCII art used by default
 ** Themes
 I will set a theme up, but also create a keybinding to easily change theme using =SPC H T=
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-Iosvkem)
+(setq doom-theme 'doom-nord)
 (map! :leader
       :desc "Load a new theme"
       "h t" #'counsel-load-theme)
@@ -75,7 +75,6 @@ There are five different font settings in doom Emacs. Here is a brief descriptio
 #+end_src
 
 #+RESULTS:
-| doom--customize-themes-h-0 | doom--customize-themes-h-1006 |
 
 ** Beacon
 This package just makes your cursor seem to highlight whenever it changes position. If I find find annoying, I will just comment the following block
@@ -105,7 +104,6 @@ This package just makes your cursor seem to highlight whenever it changes positi
              :yield     "nil"
              )
 #+end_src
-* LaTeX
 * ORG mode
 The main reason to use Emacs.
 #+begin_src emacs-lisp
@@ -265,30 +263,8 @@ Taking things a bit further, I will configure =org-roam-bibtex= to be able to wo
 
 #+end_src
 
-* Python
-Use Python as if this were a proper IDE.
-#+begin_src emacs-lisp
-;(use-package! elpy
-;  :init (elpy-enable))
-;(use-package! company
-;  :init (setq company-idle-delay 0.2))
-;(use-package! lsp-mode)
-;(use-package! lsp-ui
-;  :after lsp-mode)
-;(use-package! lsp-pyright
-;  :after lsp-mode)
-#+end_src
-
 * Terminal emulator in Emacs
 This configuration applies to my eshell interpreter. My goal here is to remain in Emacs while I do something quick in my terminal.
-#+begin_src emacs-lisp
-;(if (eq system-type 'gnu/linux)
-;    (setq shell-file-name "/bin/zsh"
-;      eshell-aliases-file "~/.config/zsh/aliases"
-;      eshell-syntax-highlighting-global-mode t
-;      eshell-visual-commands '("zsh" "ssh")
-;      vterm-max-scrollback 5000)
-;    )
 #+end_src
 UPDATE: I think for now I will stick to =vterm=, which looks exactly like my usual terminal emulator
 #+begin_src emacs-lisp

@@ -15,12 +15,13 @@
         bluez
         bluez-tools
         blueman
-        #calibre
+        calibre
         cliphist
         cmake
         dialog
         dig
         emacs
+        enchant
         electron
         fd
         feishin
@@ -30,6 +31,7 @@
         gnumake
         gnuplot
         grimblast
+        hugo
         hunspell
         hunspellDicts.en_US
         hunspellDicts.es_CL
@@ -42,12 +44,15 @@
         killall
         mako
         #mgba
+        languagetool
         libreoffice-qt
         libtool
         luajitPackages.luacheck
+        nixfmt
         nwg-displays
         nwg-look
         p7zip
+        pandoc
         python3
         python3Packages.pip 
         python3Packages.black 
@@ -62,6 +67,7 @@
         shellcheck
         slack
         slurp
+        sqlite
         supersonic-wayland
         texlab
         teams-for-linux 
@@ -73,6 +79,7 @@
         waybar
         wl-clipboard
         wlogout
+        wordnet
         xfce.thunar
         zathura
         zoom-us
@@ -89,7 +96,7 @@
         ubuntu-sans-mono
         weather-icons
         font-awesome
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         nerd-fonts.jetbrains-mono
         nerd-fonts.meslo-lg
         nerd-fonts.symbols-only
