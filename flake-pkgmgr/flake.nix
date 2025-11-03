@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of uno";
+  description = "Flake to use Nix as a package manager";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -8,10 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nvf, self, ... }:
     let
       system = "aarch64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +25,10 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          nvf.homeManagerModules.default
+          ../hosts/rpi-alx/home.nix
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
