@@ -23,6 +23,7 @@
         emacs
         enchant
         electron
+        ethtool
         fd
         feishin
         firefox
