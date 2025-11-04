@@ -9,6 +9,7 @@
         ../../hosts/mbpro/modules/myshell.nix
         ../../hosts/mbpro/modules/homePkgs.nix  # Host-specific packages
         ../../modules-common/neovim.nix
+        ../../modules-common/vscode.nix
         #../../modules-common/nixvim.nix
         ../../hosts/mbpro/modules/git.nix
     ];
