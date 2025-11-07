@@ -28,7 +28,7 @@
         ubuntu-sans-mono
         weather-icons
         font-awesome
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         nerd-fonts.jetbrains-mono
         nerd-fonts.meslo-lg
         nerd-fonts.symbols-only
