@@ -11,7 +11,7 @@
             ];
             ## Local variables
             "$terminal" = "kitty";
-            "$fileManager" = "nautilus";
+            "$fileManager" = "thunar";
             "$menu" = "rofi -show drun";
             "$SwitchLayout" = "hyprctl -q switchxkblayout current next";
             #################
@@ -183,6 +183,8 @@
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"
+                # Screenshots of a region
+                "$mainMod SHIFT, P, exec, $HOME/.config/scripts/screenshot"
             ];
             bindm = [
                 # Move/resize windows with mainMod + LMB/RMB and dragging

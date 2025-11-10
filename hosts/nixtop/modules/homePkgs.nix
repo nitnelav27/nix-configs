@@ -40,6 +40,7 @@
         hyprpaper
         hyprpicker
         hyprpolkitagent
+        hyprshot
         iperf
         jq
         killall
