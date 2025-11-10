@@ -26,13 +26,17 @@
             url = "github:notashelf/nvf";
             #inputs.nixpkgs.follows = "nixpkgs";
         };
+        mac-app-util = {
+            url = "github:hraban/mac-app-util";
+            inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
+        };
         #nixvim = {
         #   url = "github:nix-community/nixvim";
         #   inputs.nixpkgs.follows = "nixpkgs";
         #};
     };
 
-    outputs = inputs@{ nixpkgs, home-manager, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, nvf, self, ... }:
+    outputs = inputs@{ nixpkgs, home-manager, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, nvf, mac-app-util, self, ... }:
     let
       userAssignments = {
         nixtop = [ "vsvh" ];
@@ -66,9 +70,10 @@
                                 name = user;
                                 value = {
                                     imports = [
-					nvf.homeManagerModules.default
-                                        #nixvim.homeManagerModules.nixvim
-                                        ../users/${user}/home.nix
+                                                nvf.homeManagerModules.default
+                                                mac-app-util.homeManagerModules.default
+                                                #nixvim.homeManagerModules.nixvim
+                                                ../users/${user}/home.nix
                                     ];
                                 };
                                 }) assignedUsers);
