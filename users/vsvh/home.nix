@@ -18,6 +18,7 @@
         ../../modules-common/mpv.nix
         ../../modules-common/rofi.nix
         ../../modules-common/vscode.nix 
+        modules/ssh.nix 
     ];
 
     # This value determines the Home Manager release that your configuration is
@@ -66,7 +67,7 @@
             recursive = true;
             source = ../../modules-common/extra/figlet_fonts;
             target = ".config/figlet_fonts";
-        };
+        }; 
     };
 
     # Home Manager can also manage your environment variables through

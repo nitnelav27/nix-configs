@@ -30,6 +30,7 @@
                     config = {
                         allowUnfree = true;
                         nvidia.acceptLicense = true;
+                        permittedInsecurePackages = [ "electron-36.9.5" ];
                     };
                 };
                 modules = [

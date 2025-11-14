@@ -16,6 +16,7 @@
             ms-vscode-remote.remote-ssh
             ms-python.vscode-pylance
             github.copilot
+            ms-vscode-remote.vscode-remote-extensionpack
         ];
     };
 }
