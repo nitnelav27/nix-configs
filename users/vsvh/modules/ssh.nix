@@ -64,7 +64,7 @@
                 addKeysToAgent = "yes";
                 identityFile = "~/.ssh/id_ed25519";
             };
-            "gandalf.studio" = {
+            "git.gandalf.studio" = {
                 port  = 22;
                 addKeysToAgent = "yes";
                 identityFile = "~/.ssh/id_ed25519";
