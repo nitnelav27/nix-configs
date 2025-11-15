@@ -65,6 +65,7 @@
     programs.starship = {
         enable = true;
         settings = {
+            command_timeout = 2000;
             add_newline = false;
             format = "$username$hostname$directory$nix_shell$git_branch$git_status$python$cmd_duration\n$jobs$character";
             character = {
