@@ -106,6 +106,7 @@
         NASDATA = "$HOME/nas/data";
         NASRES = "$HOME/nas/results";
         SHELL = "${pkgs.zsh}/bin/zsh";
+        STARSHIP_LOG = "error";
     };
 
     # Let Home Manager install and manage itself.
