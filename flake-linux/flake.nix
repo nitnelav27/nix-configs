@@ -21,6 +21,7 @@
                 dockmedia = [ "docko" ];
                 mbpro = [ "vvh" ];
 		rengo = [ "rengo" ];
+                nixtest = [ "dos" ];
             };
             
             mkHost = hostname: system: nixpkgs.lib.nixosSystem {
@@ -35,7 +36,7 @@
                 };
                 modules = [
                     ../hosts/${hostname}/configuration.nix 
-                    ../hosts/${hostname}/hardware-configuration.nix 
+                    /etc/nixos/hardware-configuration.nix 
                     home-manager.nixosModules.home-manager {
                         home-manager = {
                             useGlobalPkgs = true;
@@ -64,6 +65,7 @@
                 nixtop = mkHost "nixtop" "x86_64-linux";
                 dockmedia = mkHost "dockmedia" "x86_64-linux";
 		rengo = mkHost "rengo" "x86_64-linux";
+                nixtest = mkHost "nixtest" "x86_64-linux";
             };
         };
 }
