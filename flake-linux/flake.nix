@@ -20,7 +20,7 @@
                 nixtop = [ "vsvh" ];
                 dockmedia = [ "docko" ];
                 mbpro = [ "vvh" ];
-		rengo = [ "rengo" ];
+		        rengo = [ "rengo" ];
                 nixtest = [ "dos" ];
             };
             
