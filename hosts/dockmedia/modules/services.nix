@@ -41,63 +41,13 @@
                                 ## migration
                                 /export/migration 10.27.81.115/32(insecure,rw,no_subtree_check)
                                 ## docs
-                                /export/docs 10.27.81.115/32(insecure,rw,no_subtree_check) 10.27.81.81/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check) 10.27.81.82/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check)
+                                /export/docs 10.27.81.115/32(insecure,rw,no_subtree_check) 10.27.81.81/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check) 10.27.81.82/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check) 10.27.81.84/32(insecure,rw,no_subtree_check)
                                 ## results
                                 /export/results 10.27.81.115/32(insecure,rw,no_subtree_check) 10.27.81.81/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check) 10.27.81.82/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check)
                         '';
                 };
         };
 
-  services.samba = {
-                enable = true;
-                openFirewall = true;
-                settings = {
-                        "time" = {
-                                "path" = "/storage/time";
-                                "valid users" = "tm";
-                                "public" = "no";
-                                "writeable" = "yes";
-                                "force user" = "tm";
-                                "fruit:aapl" = "yes";
-                                "fruit:time machine" = "yes";
-                                "vfs objects" = "catia fruit streams_xattr";
-                        };
-                };
-        };
-  
-  services.avahi = {
-                publish.enable = true;
-                publish.userServices = true;
-                enable = true;
-                openFirewall = true;
-                extraServiceFiles = {
-                        timemachine = ''
-                                <?xml version="1.0" standalone='no'?>
-      <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-      <service-group>
-        <name replace-wildcards="yes">%h</name>
-        <service>
-          <type>_smb._tcp</type>
-          <port>445</port>
-        </service>
-          <service>
-          <type>_device-info._tcp</type>
-          <port>9</port>
-          <txt-record>model=TimeCapsule8,119</txt-record>
-        </service>
-        <service>
-          <type>_adisk._tcp</type>
-          <!-- 
-            change tm_share to share name, if you changed it. 
-          -->
-          <port>9</port>
-          <txt-record>dk0=adVN=time,adVF=0x82</txt-record>
-          <txt-record>sys=adVF=0x100</txt-record>
-        </service>
-      </service-group>
-                                '';
-                };
-        };
 
   virtualisation.docker = {
                 enable  = true;
