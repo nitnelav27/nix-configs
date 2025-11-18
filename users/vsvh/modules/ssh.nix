@@ -70,6 +70,12 @@
                 addKeysToAgent = "yes";
                 identityFile = "~/.ssh/id_ed25519";
             };
+            "nixtest" = {
+                hostname = "10.27.81.84";
+                port = 1186;
+                user = "dos";
+                identityFile = "~/.ssh/id_ed25519";
+            };
         };
     };
 
