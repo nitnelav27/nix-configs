@@ -227,14 +227,14 @@
                 "10,monitor:DP-5"
             ];
             ###### Window rules
-            windowrulev2 = [
-                "workspace 1, class:firefox"
-                "workspace 6, class:thunderbird"
-                "workspace 7, class:Slack"
-                "workspace 7, class:teams-for-linux"
-                "workspace 2, class:emacs"
-                "suppressevent maximize, class:.*"
-                "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+            windowrule = [
+                "workspace 1, match:class firefox"
+                "workspace 6, match:class thunderbird"
+                "workspace 7, match:class Slack"
+                "workspace 7, match:class teams-for-linux"
+                "workspace 2, match:class emacs"
+                "suppress_event maximize, match:class .*"
+                "match:focus false, match:class ^$, match:title ^$,match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
             ];
         };
     };
