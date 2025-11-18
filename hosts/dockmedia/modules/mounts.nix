@@ -32,12 +32,6 @@
                 device = "/dev/disk/by-uuid/6e7c3cd0-4271-4873-84d4-1b4d210430e7";
                 fsType = "ext4";
         };
-  ## TIMEMACHINE HDD
-  fileSystems."/storage/time" = {
-                device = "/dev/disk/by-uuid/7c05c911-de91-4bd1-9358-93563d369d90";
-                fsType = "ext4";
-        };
-
   ## BIND MOUNTS: calibre 
   fileSystems."/export/calibre" = {
                 device = "/storage/nas/calibre";
