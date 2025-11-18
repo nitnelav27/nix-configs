@@ -10,7 +10,9 @@ imports = [
                 /etc/nixos/hardware-configuration.nix 
                 ./modules/network.nix
                 ./modules/services.nix
+                ./modules/mounts.nix
                 ../../modules-common/storageOpt.nix
+                ../../media/jellyfin.nix
         ]; 
 
     # Set your time zone.
@@ -28,7 +30,7 @@ imports = [
                                 isNormalUser = true;
                                 uid = 1000;
                                 group = "dos";
-                                homeMode = "755";
+                                homeMode = "764";
                                 shell = pkgs.zsh;
                                 extraGroups = [ "wheel" ];
                         };
@@ -49,6 +51,9 @@ imports = [
     fastfetch
     neo-cowsay
     acl
+        jellyfin
+        jellyfin-web
+        jellyfin-ffmpeg
   ];
 
    
