@@ -11,8 +11,10 @@ imports = [
                 ./modules/network.nix
                 ./modules/services.nix
                 ./modules/mounts.nix
+                ./modules/firewall.nix
                 ../../modules-common/storageOpt.nix
                 ../../media/jellyfin.nix
+                ../../utils/paperless.nix
         ]; 
 
     # Set your time zone.
