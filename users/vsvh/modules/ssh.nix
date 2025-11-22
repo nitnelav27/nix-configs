@@ -48,7 +48,7 @@
                 identityFile = "~/.ssh/id_ed25519";
             };
             "hopper-gmu" = {
-                hostname = "amd001";
+                hostname = "amd004";
                 user = "vvergara";
                 port = 22;
                 proxyJump = "hopper-gmu-headnode";
