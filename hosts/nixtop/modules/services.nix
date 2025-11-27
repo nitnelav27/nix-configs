@@ -9,6 +9,7 @@
         
     # Use GRUB.
     boot = {
+        binfmt.emulatedSystems = [ "aarch64-linux" ];
         supportedFilesystems = [ "nfs" ];
         loader = {
             systemd-boot.enable = false;
@@ -85,4 +86,10 @@
     services.hypridle = {
         enable = true;
     };
+
+    services.solaar = {
+        enable = true;
+        batteryIcons = "solaar";
+    };
+
 }
