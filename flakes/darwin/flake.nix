@@ -3,14 +3,14 @@
 
     inputs = {
         nixpkgs = {
-            url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+            url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
         };
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/release-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nix-darwin = {
-            url = "github:nix-darwin/nix-darwin/master";
+            url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -54,6 +54,7 @@
                         system = system;
                         config = {
                             allowUnfree = true;
+                            allowUnsupportedSystem = true;
                         };
                     };
                     modules = [
@@ -83,7 +84,7 @@
                                 enableRosetta = true;
 
                                 # User owning the Homebrew prefix
-                                user = ${mainUser};
+                                user = "${mainUser}";
 
                                 # Optional: Declarative tap management
                                 taps = {

@@ -6,12 +6,13 @@
 
     imports = [
         ../../modules/common/terminals.nix
-        ../../modules/common/myshell.nix
+        ./localModules/myshell.nix
         ../../modules/common/homeBase.nix
-        ../../hosts/mbpro/localModules/homePkgs.nix  # Host-specific packages
-        ../../hosts/mbpro/localModules/git.nix
+        ./localModules/homePkgs.nix
+        ./localModules/git.nix
         ../../modules/common/neovim.nix
         ../../modules/utils/vscode.nix
+        ../../modules/common/yazi.nix
     ];
 
 

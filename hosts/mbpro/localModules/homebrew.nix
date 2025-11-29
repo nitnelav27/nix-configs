@@ -12,10 +12,10 @@
             "zoom"
             "adobe-acrobat-reader"
             "mactex"
-	    "whatsapp"
-	    "via"
+	        "whatsapp"
+	        "via"
             "raspberry-pi-imager"
-            "ollama"
+            #"logi-options+"
         ];
         brews = [
             "imagemagick"
