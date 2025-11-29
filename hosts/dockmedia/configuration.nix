@@ -3,40 +3,38 @@
 {
   imports = [
                 /etc/nixos/hardware-configuration.nix 
-                ./modules/network.nix
-                ./modules/mounts.nix
-                ./modules/services.nix
-                ./modules/firewall.nix 
-                ../../modules-common/nvidia.nix
-                ../../modules-common/storageOpt.nix
+                ./localModules/network.nix
+                ./localModules/mounts.nix
+                ./localModules/services.nix
+                ./localModules/firewall.nix
+                ../../modules/media/nvidia.nix
+                ../../modules/common/storageOpt.nix
         ]; 
 
     # Set your time zone.
   time.timeZone = "America/New_York";
 
   users = {
-                groups = {
-                        docko = {
-                                gid = 1000;
-                        };
-                };
-                users = {
-                        docko = {
-                                description = "Docker containers VM";
-                                isNormalUser = true;
-                                uid = 1000;
-                                group = "docko";
-                                homeMode = "755";
-                                shell = pkgs.zsh;
-                                extraGroups = [ "wheel" "docker" ];
-                        };
-                        tm = {
-                                description = "User for Time Machine backups";
-                                isNormalUser = true;
-                                createHome = false;
-                        };
-                };
+        groups = {
+            docko = {
+                gid = 1000;
+            };
         };
+        users = {
+            docko = {
+                description = "Docker containers VM";
+                isNormalUser = true;
+                uid = 1000;
+                group = "docko";
+                homeMode = "755";
+                shell = pkgs.zsh;
+                extraGroups = [ "wheel" "docker" ];
+                openssh.authorizedKeys.keys = [
+                    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC9CaJu6FJJ4s4NaL546RufQdrw7UB4zlChTN10avrpt valentinvergara@gmail.com"
+                ];
+            };
+        };
+    };
 
   programs.zsh.enable = true;
 

@@ -22,15 +22,7 @@
 
     outputs = inputs@{ nixpkgs, home-manager, hyprland, nvf, solaar, self, ... }:
         let
-            userAssignments = {
-                nixtop = [ "vsvh" ];
-                dockmedia = [ "docko" ];
-                mbpro = [ "vvh" ];
-		        rengo = [ "rengo" ];
-                nixtest = [ "dos" ];
-            };
-            
-            mkHost = hostname: system: nixpkgs.lib.nixosSystem {
+            mkHost = hostname: system: mainUser: nixpkgs.lib.nixosSystem {
                 inherit system;
                 pkgs = import nixpkgs {
                     system = system;
@@ -41,25 +33,17 @@
                     };
                 };
                 modules = [
-                    ../hosts/${hostname}/configuration.nix 
+                    ../../hosts/${hostname}/configuration.nix 
                     /etc/nixos/hardware-configuration.nix
                     solaar.nixosModules.default
                     home-manager.nixosModules.home-manager {
                         home-manager = {
                             useGlobalPkgs = true;
                             useUserPackages = true;
-                            users = let 
-                                assignedUsers = userAssignments.${hostname};
-                                in builtins.listToAttrs
-                            (map (user: {
-                                name = user;
-                                value = {
-                                    imports = [
-                                        nvf.homeManagerModules.default
-                                        ../users/${user}/home.nix
-                                    ];
-                                };
-                                }) assignedUsers);
+                            users.${mainUser}.imports = [
+                                nvf.homeManagerModules.default
+                                ../../hosts/${hostname}/home.nix
+                            ];
                             extraSpecialArgs = { inherit inputs; };
                         };
                     }
@@ -69,10 +53,10 @@
             
         in {
             nixosConfigurations = {
-                nixtop = mkHost "nixtop" "x86_64-linux";
-                dockmedia = mkHost "dockmedia" "x86_64-linux";
-		rengo = mkHost "rengo" "x86_64-linux";
-                nixtest = mkHost "nixtest" "x86_64-linux";
+                nixtop = mkHost "nixtop" "x86_64-linux" "vsvh";
+                dockmedia = mkHost "dockmedia" "x86_64-linux" "docko";
+		        rengo = mkHost "rengo" "x86_64-linux" "rengo";
+                nixtest = mkHost "nixtest" "x86_64-linux" "dos";
             };
         };
 }

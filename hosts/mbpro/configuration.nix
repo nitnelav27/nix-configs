@@ -3,10 +3,10 @@
 {
     ## Imports
     imports = [
-        ./modules/mounts.nix
-        ./modules/system.nix
-        ./modules/homebrew.nix
-        ./modules/storageOpt.nix
+        ./localModules/mounts.nix
+        ./localModules/system.nix
+        ./localModules/homebrew.nix
+        ./localModules/storageOpt.nix
     ];
 
     ## Required for flake use 
@@ -24,7 +24,7 @@
     environment.systemPackages = with pkgs; [
         mkalias
         vim
-	home-manager
+	    home-manager
     ]; 
 
     ## Environment variables to help with darwin compilation

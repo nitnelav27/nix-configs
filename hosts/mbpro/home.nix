@@ -5,13 +5,13 @@
     home.homeDirectory = "/Users/vvh";  # macOS uses /Users instead of /home
 
     imports = [
-        ../../modules-common/terminals.nix
-        ../../hosts/mbpro/modules/myshell.nix
-        ../../hosts/mbpro/modules/homePkgs.nix  # Host-specific packages
-        ../../modules-common/neovim.nix
-        ../../modules-common/vscode.nix
-        #../../modules-common/nixvim.nix
-        ../../hosts/mbpro/modules/git.nix
+        ../../modules/common/terminals.nix
+        ../../modules/common/myshell.nix
+        ../../modules/common/homeBase.nix
+        ../../hosts/mbpro/localModules/homePkgs.nix  # Host-specific packages
+        ../../hosts/mbpro/localModules/git.nix
+        ../../modules/common/neovim.nix
+        ../../modules/utils/vscode.nix
     ];
 
 
@@ -38,35 +38,35 @@
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/doom;
+            source = ../../extra/doom; 
             target = ".config/doom";
         };
         matplotlib = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/matplotlib;
+            source = ../../extra/matplotlib;
             target = ".config/matplotlib";
         };
         jupyter = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/jupyter;
+            source = ../../extra/jupyter;
             target = ".config/jupyter";
         };
         scripts = {
             enable = true;
             executable = true;
             recursive = true;
-            source = ../../modules-common/extra/scripts;
+            source = ../../extra/scripts;
             target = ".config/scripts";
         };
         figlet-fonts = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/figlet_fonts;
+            source = ../../extra/figlet_fonts;
             target = ".config/figlet_fonts";
         };
     };

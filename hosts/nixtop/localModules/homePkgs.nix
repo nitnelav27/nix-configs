@@ -1,56 +1,34 @@
 { config, lib, pkgs, inputs, ... }: 
 {
     home.packages = with pkgs; [
-        stdenv
-        btop
-        fastfetch
-        eza
-        tldr
-        duf
         texlive.combined.scheme-full
-        aspell
-        aspellDicts.en
-        aspellDicts.es
-        bat
         bluez
         bluez-tools
         blueman
         calibre
-        cliphist
         cmake
-        dialog
-        dig
         emacs
         enchant
         electron
-        ethtool
-        fd
         feishin
         firefox
-        fzf
         gcc
         gnumake
         gnuplot
         grimblast
         hugo
-        hunspell
-        hunspellDicts.en_US
-        hunspellDicts.es_CL
         hypridle
         hyprpaper
         hyprpicker
         hyprpolkitagent
         hyprshot
-        iperf
         jq
-        killall
         mako
         #mgba
         languagetool
         libreoffice-qt
         libtool
         luajitPackages.luacheck
-        nixfmt
         nwg-displays
         nwg-look
         p7zip
@@ -62,11 +40,9 @@
         python3Packages.mypy
         python3Packages.debugpy
         python3Packages.isort
-        pyright
         pwvucontrol
         ripgrep
         scrot
-        shellcheck
         slack
         slurp
         sqlite
@@ -74,8 +50,6 @@
         texlab
         teams-for-linux 
         thunderbird
-        tree
-        unzip
         via
         vscode
         waybar
@@ -85,25 +59,5 @@
         xfce.thunar
         zathura
         zoom-us
-        ### Fonts start here
-        barlow
-        fira
-        hasklig
-        source-code-pro
-        material-design-icons
-        material-icons
-        noto-fonts
-        roboto
-        ubuntu-sans
-        ubuntu-sans-mono
-        weather-icons
-        font-awesome
-        noto-fonts-color-emoji
-        nerd-fonts.jetbrains-mono
-        nerd-fonts.meslo-lg
-        nerd-fonts.symbols-only
-        ### End of fonts
     ];
-
-    fonts.fontconfig.enable = true;
 }

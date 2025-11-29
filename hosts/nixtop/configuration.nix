@@ -6,11 +6,10 @@
 
 {
     imports = [
-        # Include the results of the hardware scan.
         /etc/nixos/hardware-configuration.nix
-        ./modules/services.nix
-        ./modules/mounts.nix
-        ../../modules-common/storageOpt.nix
+        ./localModules/services.nix
+        ./localModules/mounts.nix
+        ../../modules/common/storageOpt.nix
     ];
 
     # Activate swap
@@ -135,7 +134,8 @@
     # List services that you want to enable:
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nix.settings.sandbox = false;
+    ## change this to build sd-installer for raspberry pi
+    nix.settings.sandbox = true;
 
     # Copy the NixOS configuration file and link it from the resulting system
     # (/run/current-system/configuration.nix). This is useful in case you

@@ -1,7 +1,10 @@
 { config, lib, pkgs, input, ... }:
 {
     home.packages = with pkgs; [
-        acl
+        kitty
+        cuetools
+        shntool
+        flac
+        xsel
     ];
-
 }

@@ -9,7 +9,8 @@
         
     # Use GRUB.
     boot = {
-        binfmt.emulatedSystems = [ "aarch64-linux" ];
+        ## uncomment below to build a sd-image for raspberry pi
+        #binfmt.emulatedSystems = [ "aarch64-linux" ];
         supportedFilesystems = [ "nfs" ];
         loader = {
             systemd-boot.enable = false;

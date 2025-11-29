@@ -7,18 +7,19 @@
     home.homeDirectory = "/home/vsvh";
 
     imports = [
-        ../../modules-common/terminals.nix 
-        ../../modules-common/myshell.nix 
-        ../../modules-common/hyprland.nix
-        ../../modules-common/hyprlock.nix
-        ../../hosts/nixtop/modules/homePkgs.nix
-        ../../hosts/nixtop/modules/homeServices.nix
-        ../../modules-common/neovim.nix
-        ../../modules-common/git.nix
-        ../../modules-common/mpv.nix
-        ../../modules-common/rofi.nix
-        ../../modules-common/vscode.nix 
-        modules/ssh.nix 
+        ../../modules/common/terminals.nix 
+        ../../modules/common/myshell.nix 
+        ../../modules/wm/hyprland.nix
+        ../../modules/wm/hyprlock.nix
+        ../../modules/common/homeBase.nix
+        ./localModules/homePkgs.nix
+        ./localModules/homeServices.nix
+        ../../modules/common/neovim.nix
+        ../../modules/common/git.nix
+        ../../modules/media/mpv.nix
+        ../../modules/wm/rofi.nix
+        ../../modules/utils/vscode.nix 
+        ./localModules/ssh.nix 
     ];
 
     # This value determines the Home Manager release that your configuration is
@@ -37,35 +38,35 @@
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/doom;
+            source = ../../extra/doom;
             target = ".config/doom";
         };
         matplotlib = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/matplotlib;
+            source = ../../extra/matplotlib;
             target = ".config/matplotlib";
         };
         jupyter = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/jupyter;
+            source = ../../extra/jupyter;
             target = ".config/jupyter";
         };
         scripts = {
             enable = true;
             executable = true;
             recursive = true;
-            source = ../../modules-common/extra/scripts;
+            source = ../../extra/scripts;
             target = ".config/scripts";
         };
         figlet-fonts = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/figlet_fonts;
+            source = ../../extra/figlet_fonts;
             target = ".config/figlet_fonts";
         }; 
     };
