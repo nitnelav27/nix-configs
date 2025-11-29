@@ -12,6 +12,7 @@
         ../../modules/common/git.nix
         ../../modules/common/homeBase.nix
         ./localModules/homePkgs.nix
+        ../../modules/common/yazi.nix
     ];
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
@@ -32,14 +33,14 @@
             enable = true;
             executable = true;
             recursive = true;
-            source = ../../modules-common/extra/scripts;
+            source = ../../extra/scripts;
             target = ".config/scripts";
         };
         figlet-fonts = {
             enable = true;
             executable = false;
             recursive = true;
-            source = ../../modules-common/extra/figlet_fonts;
+            source = ../../extra/figlet_fonts;
             target = ".config/figlet_fonts";
         };
     };
