@@ -14,7 +14,7 @@
         history.ignorePatterns = [ "rm *" "pkill *" "l *" "cp *" ];
         history.ignoreDups = true;
         shellAliases = {
-            l = "eza --group --icons";
+            l = "eza -F --color=always --icons=always --group-directories-first -hg";
         };
         initContent = ''
             ####### This is zsh specific syntax
@@ -51,12 +51,12 @@
             }
             {
                 name = "colorize";
-                src = ../modules-common/extra/zsh-plugins;
+                src = ../../extra/zsh-plugins;
                 file = "colorize.plugin.zsh";
             }
             {
                 name = "colored-man-pages";
-                src = ../modules-common/extra/zsh-plugins;
+                src = ../../extra/zsh-plugins;
                 file = "colored-man-pages.plugin.zsh";
             }
         ];

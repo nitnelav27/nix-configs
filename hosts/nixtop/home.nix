@@ -20,6 +20,7 @@
         ../../modules/wm/rofi.nix
         ../../modules/utils/vscode.nix 
         ./localModules/ssh.nix 
+        ../../modules/common/yazi.nix
     ];
 
     # This value determines the Home Manager release that your configuration is
