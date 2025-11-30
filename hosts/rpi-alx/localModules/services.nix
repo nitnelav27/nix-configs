@@ -6,7 +6,6 @@
         kernelParams = [ "dtparam=nvme" ];
         loader = {
             grub.enable = false;
-            raspberryPi.bootloader = "kernel";
         };
     };
 

@@ -30,12 +30,7 @@
         let 
         mkHost = hostname: system: mainUser: nixos-raspberrypi.lib.nixosSystem {
             inherit system;
-            pkgs = import nixpkgs {
-                system = system;
-                config = {
-                    allowUnfree = true;
-                };
-            };
+            pkgs = nixpkgs.legacyPackages.${system};
             modules = [
                 ../../hosts/${hostname}/configuration.nix
                 ({...}: {
