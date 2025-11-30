@@ -56,7 +56,7 @@
                     };
                 }
             ];
-            specialArgs = { inherit hostname inputs; };
+            specialArgs = { inherit hostname nixos-raspberrypi inputs; };
         };
 
     in {
