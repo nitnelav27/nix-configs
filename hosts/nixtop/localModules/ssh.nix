@@ -44,7 +44,7 @@
             "rpi-alx" = {
                 hostname = "10.27.81.3";
                 port = 1186;
-                user = "uno";
+                user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
             };
             "hopper-gmu" = {

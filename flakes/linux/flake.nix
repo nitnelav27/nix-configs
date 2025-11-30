@@ -34,7 +34,7 @@
                 };
                 modules = [
                     ../../hosts/${hostname}/configuration.nix 
-                    /etc/nixos/hardware-configuration.nix
+                    #/etc/nixos/hardware-configuration.nix
                     solaar.nixosModules.default
                     home-manager.nixosModules.home-manager {
                         home-manager = {
