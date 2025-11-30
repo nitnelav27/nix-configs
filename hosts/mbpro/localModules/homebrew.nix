@@ -15,7 +15,7 @@
 	        "whatsapp"
 	        "via"
             "raspberry-pi-imager"
-            #"logi-options+"
+            "logi-options+"
         ];
         brews = [
             "imagemagick"

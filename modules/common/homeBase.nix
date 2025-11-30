@@ -21,7 +21,7 @@
         hunspellDicts.es_CL
         iperf
         killall
-        nixfmt
+        nixfmt-rfc-style
         pyright
         shellcheck
         tree
