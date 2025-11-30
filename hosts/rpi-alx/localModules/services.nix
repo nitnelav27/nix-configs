@@ -11,10 +11,10 @@
 
     networking = {
         hostName = "rpi-alx";
-        networkManager = {
-            enable = true;
-            dns = "none";
-        };
+        #networkManager = {
+        #    enable = true;
+        #    dns = "none";
+        #};
         useDHCP = false;
         dhcpcd.enable = false;
         interfaces.end0 = {
@@ -49,7 +49,7 @@
         };
         podman = {
             enable = true;
-            dockerCompat = true;
+            #dockerCompat = true;
         };
     };
 }
