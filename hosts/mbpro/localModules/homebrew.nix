@@ -16,6 +16,7 @@
 	        "via"
             "raspberry-pi-imager"
             "logi-options+"
+            "ghostty"
         ];
         brews = [
             "imagemagick"

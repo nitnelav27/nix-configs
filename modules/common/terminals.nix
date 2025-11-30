@@ -1,6 +1,25 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+    programs.ghostty = {
+        enable = true;
+        package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
+        ## Enable for whichever shell you plan to use!
+        #enableBashIntegration = true;
+        #enableFishIntegration = true;
+        enableZshIntegration = true;
+        settings = {
+            theme = "Dark+";
+            background-opacity = "0.9";
+            font-family = "JetBrainsMonoNL Nerd Font Mono";
+            font-size = 18;
+            macos-hidden = "always";
+            window-width = 150;
+            window-height = 50;
+        };
+    };
+
+
     programs.kitty = lib.mkForce {
         enable = true;
         font = {
