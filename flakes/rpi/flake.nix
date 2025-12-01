@@ -5,7 +5,6 @@
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
         nixos-raspberrypi = {
             url = "github:nvmd/nixos-raspberrypi/main";
-            #inputs.nixpkgs.follows = "nixpkgs";
         };
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -26,11 +25,10 @@
         ];
     };
 
-    outputs = { self, nixpkgs, nixos-raspberrypi, home-manager, nvf, ... }@inputs:
+    outputs = { self, nixpkgs, nixos-raspberrypi, home-manager, nvf }@inputs:
         let 
         mkHost = hostname: system: mainUser: nixos-raspberrypi.lib.nixosSystem {
-            inherit system;
-            pkgs = nixpkgs.legacyPackages.${system};
+            specialArgs = inputs;
             modules = [
                 ../../hosts/${hostname}/configuration.nix
                 ({...}: {
@@ -51,7 +49,6 @@
                     };
                 }
             ];
-            specialArgs = { inherit hostname nixos-raspberrypi inputs; };
         };
 
     in {
