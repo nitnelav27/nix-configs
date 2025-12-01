@@ -8,10 +8,10 @@
 
     imports = [
         ../../modules/common/terminals.nix
-        ../../modules/common/myshell.nix
+        ./localModules/myshell.nix
         ../../modules/common/homeBase.nix
         ../../modules/common/neovim.nix
-        ../../modules/common/git.nix
+        #../../modules/common/git.nix
         ../../modules/common/yazi.nix
     ];
 
@@ -39,7 +39,7 @@
     home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";
-        TERMINAL = "kitty";
+        TERMINAL = "ghostty";
     };
 
     # Let Home Manager install and manage itself.

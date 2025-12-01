@@ -17,6 +17,8 @@
         size = 1024; ## size in megabytes
     }];
 
+    nixpkgs.config.allowUnfree = true;
+
     ## Set your time zone.
     time.timeZone = "America/New_York";
 
@@ -55,12 +57,12 @@
     environment.systemPackages = with pkgs; [
         vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
         wget
-        home-manager
         rsync
         fastfetch
         git
-        kitty
     ];
+
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

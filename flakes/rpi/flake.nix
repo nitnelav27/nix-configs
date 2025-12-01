@@ -7,7 +7,7 @@
             url = "github:nvmd/nixos-raspberrypi/main";
         };
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/release-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nvf = {
@@ -28,28 +28,28 @@
     outputs = { self, nixpkgs, nixos-raspberrypi, home-manager, nvf }@inputs:
         let 
         mkHost = hostname: system: mainUser: nixos-raspberrypi.lib.nixosSystem {
-            specialArgs = inputs;
-            modules = [
-                ../../hosts/${hostname}/configuration.nix
-                ({...}: {
-                    imports = with nixos-raspberrypi.nixosModules; [
-                        raspberry-pi-5.base
-                        raspberry-pi-5.bluetooth
-                    ];
-                })
-                home-manager.nixosModules.home-manager {
-                    home-manager = {
-                        useGlobalPkgs = true;
-                        useUserPackages = true;
-                        users.${mainUser}.imports = [
-                            nvf.homeManagerModules.default
-                            ../../hosts/${hostname}/home.nix
+                specialArgs = inputs;
+                modules = [
+                    ../../hosts/${hostname}/configuration.nix
+                    ({...}: {
+                        imports = with nixos-raspberrypi.nixosModules; [
+                            raspberry-pi-5.base
+                            raspberry-pi-5.bluetooth
                         ];
-                        extraSpecialArgs = { inherit inputs; };
-                    };
-                }
-            ];
-        };
+                    })
+                    home-manager.nixosModules.home-manager {
+                        home-manager = {
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            users.${mainUser}.imports = [
+                                nvf.homeManagerModules.default
+                                ../../hosts/${hostname}/home.nix
+                            ];
+                            extraSpecialArgs = { inherit inputs; };
+                        };
+                    }
+                ];
+            };
 
     in {
             nixosConfigurations = {

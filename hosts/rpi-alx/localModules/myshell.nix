@@ -7,15 +7,15 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        dotDir = "${config.home.homeDirectory}/.config/zsh";
+        dotDir = ".config/zsh";
         history.size = 1000;
         history.save = 10000;
         history.path = "${config.home.homeDirectory}/.local/share/zsh/history";
         history.ignorePatterns = [ "rm *" "pkill *" "l *" "cp *" ];
         history.ignoreDups = true;
-        #shellAliases = {
-        #    l = "eza -F --color=always --icons=always --group-directories-first -hg";
-        #};
+        shellAliases = {
+            l = "eza -F --color=always --icons=always --group-directories-first -hg";
+        };
         initContent = ''
             ####### This is zsh specific syntax
             path+=($HOME/.local/bin)
@@ -49,16 +49,16 @@
 	            src = pkgs.zsh-vi-mode;
 	            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
             }
-            #{
-            #    name = "colorize";
-            #    src = ../../extra/zsh-plugins;
-            #    file = "colorize.plugin.zsh";
-            #}
-            #{
-            #    name = "colored-man-pages";
-            #    src = ../../extra/zsh-plugins;
-            #    file = "colored-man-pages.plugin.zsh";
-            #}
+            {
+                name = "colorize";
+                src = ../../../extra/zsh-plugins;
+                file = "colorize.plugin.zsh";
+            }
+            {
+                name = "colored-man-pages";
+                src = ../../../extra/zsh-plugins;
+                file = "colored-man-pages.plugin.zsh";
+            }
         ];
     };
 
