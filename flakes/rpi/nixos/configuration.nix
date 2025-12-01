@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+            ./locMods/storageOpts.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -97,7 +98,7 @@
     wget
     fastfetch
     git
-    gzip
+    home-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
