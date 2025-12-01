@@ -10,7 +10,7 @@
                 "DP-4, 3840x2160@60.00, 0x0, 1.2"
             ];
             ## Local variables
-            "$terminal" = "kitty";
+            "$terminal" = "ghostty";
             "$fileManager" = "thunar";
             "$menu" = "rofi -show drun";
             "$SwitchLayout" = "hyprctl -q switchxkblayout current next";

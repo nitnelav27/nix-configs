@@ -100,7 +100,7 @@
         EDITOR = "nvim";
         READER = "zathura";
         VISUAL = "nvim";
-        TERMINAL = "kitty";
+        TERMINAL = "ghostty";
         VIDEO = "mpv";
         OPENER = "xdg-open";
         PAGER = "less";
