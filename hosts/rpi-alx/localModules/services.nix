@@ -3,6 +3,13 @@
 {
     # Use Raspberry pi Kernel boot.
     boot = {
+	initrd.systemd = {
+	    enable = lib.mkForce false;
+	    fido2.enable = lib.mkForce false;
+	    package = lib.mkForce { 
+    		kbd = { gzip = pkgs.gzip; bin = "${pkgs.kbd}/bin/loadkeys"; };
+	     };	
+	};
         kernelParams = [ "dtparam=nvme" ];
         loader = {
             grub.enable = false;
