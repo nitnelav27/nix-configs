@@ -79,7 +79,7 @@
                                 uid = 1000;
                                 group = "vvh";
                                 homeMode = "755";
-                                #shell = pkgs.zsh;
+                                shell = pkgs.zsh;
                                 extraGroups = [ "wheel" ];
 				openssh.authorizedKeys.keys = [
                                   "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC9CaJu6FJJ4s4NaL546RufQdrw7UB4zlChTN10avrpt valentinvergara@gmail.com"
@@ -99,6 +99,7 @@
     fastfetch
     git
     home-manager
+        #zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -18,7 +18,7 @@
         ];
     };
 
-    outputs = { self, nixpkgs, nixos-raspberrypi, home-manager }@inputs:
+    outputs = { self, nixpkgs, nixos-raspberrypi, home-manager, nvf }@inputs:
         {
             nixosConfigurations = {
                 rpi-alx = nixos-raspberrypi.lib.nixosSystem {
@@ -36,7 +36,7 @@
                                 useGlobalPkgs = true;
                                 useUserPackages = true;
                                 users."vvh".imports = [
-                                    #nvf.homeManagerModules.default
+                                    nvf.homeManagerModules.default
                                     ./home.nix
                                 ];
                                 extraSpecialArgs = { inherit inputs; };

@@ -7,7 +7,8 @@
   home.homeDirectory = "/home/vvh";
 
   imports = [
-                ./locMods/myshell.nix 
+                ./locMods/myshell.nix
+                ./locMods/neovim.nix
         #../../modules-common/neovim.nix
         #./modules-common/git.nix
         #../../hosts/nixtest/modules/homePkgs.nix
