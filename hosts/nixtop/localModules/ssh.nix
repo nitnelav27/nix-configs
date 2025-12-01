@@ -16,7 +16,9 @@
                 controlMaster = "no";
                 controlPath = "~/.ssh/master-%r@%n:%p";
                 controlPersist = "no";
-                setEnv =  "TERM=xterm-256color";
+                setEnv = {
+                    TERM = "xterm-256color";
+                };
             };
             "dockmedia" = {
                 hostname = "10.27.81.4";
