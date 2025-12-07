@@ -8,21 +8,21 @@
     imports = [
         /etc/nixos/hardware-configuration.nix
         ./localModules/services.nix
-        ./localModules/mounts.nix
+        #./localModules/mounts.nix
         ../../modules/common/storageOpt.nix
     ];
 
     # Activate swap
-    swapDevices = [{
-        device = "/var/lib/swapfile";
-        size = 16*1024; # Size in megabytes
-    }];
+    #swapDevices = [{
+    #    device = "/var/lib/swapfile";
+    #    size = 16*1024; # Size in megabytes
+    #}];
 
     # To get ride of the warning when building system 
     nix.settings.download-buffer-size = 4096*1024;
 
     networking = {
-        hostName = "nixtop";
+        hostName = "nixtop-ccp";
         networkmanager = {
             enable = true;
             dns = "none";
@@ -37,7 +37,7 @@
     };
 
     # Set your time zone.
-    time.timeZone = "America/New_York";
+    time.timeZone = "America/Santiago";
 
     # Select internationalisation properties.
     # i18n.defaultLocale = "en_US.UTF-8";
@@ -92,15 +92,15 @@
     };
 
     ## Hardware for video
-    hardware.graphics = {
-        enable = true;
-        enable32Bit = true;
-        extraPackages = with pkgs; [
-            intel-media-driver
-            libva-vdpau-driver
-            libvdpau-va-gl
-        ];
-    };
+    #hardware.graphics = {
+    #    enable = true;
+    #    enable32Bit = true;
+    #    extraPackages = with pkgs; [
+    #        intel-media-driver
+    #        libva-vdpau-driver
+    #        libvdpau-va-gl
+    #    ];
+    #};
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget

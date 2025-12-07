@@ -34,7 +34,6 @@
                 };
                 modules = [
                     ../../hosts/${hostname}/configuration.nix 
-                    #/etc/nixos/hardware-configuration.nix
                     solaar.nixosModules.default
                     home-manager.nixosModules.home-manager {
                         home-manager = {
@@ -53,7 +52,7 @@
             
         in {
             nixosConfigurations = {
-                nixtop = mkHost "nixtop" "x86_64-linux" "vsvh";
+                nixtop = mkHost "nixtop-ccp" "x86_64-linux" "vsvh";
                 dockmedia = mkHost "dockmedia" "x86_64-linux" "docko";
 		        rengo = mkHost "rengo" "x86_64-linux" "rengo";
                 nixtest = mkHost "nixtest" "x86_64-linux" "dos";
