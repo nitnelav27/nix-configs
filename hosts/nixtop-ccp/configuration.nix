@@ -13,10 +13,10 @@
     ];
 
     # Activate swap
-    #swapDevices = [{
-    #    device = "/var/lib/swapfile";
-    #    size = 16*1024; # Size in megabytes
-    #}];
+    swapDevices = [{
+        device = "/var/lib/swapfile";
+        size = 16*1024; # Size in megabytes
+    }];
 
     # To get ride of the warning when building system 
     nix.settings.download-buffer-size = 4096*1024;

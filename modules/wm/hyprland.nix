@@ -7,7 +7,8 @@
         settings = {
             monitor = [
                 #"DP-3, 3440x1440@99.98, 0x0, 1"
-                "DP-4, 3840x2160@60.00, 0x0, 1.2"
+                #"DP-4, 3840x2160@60.00, 0x0, 1.2"
+                "HDMI-A-1, 3440x1440@99.98, 0x0, 0.9"
             ];
             ## Local variables
             "$terminal" = "ghostty";

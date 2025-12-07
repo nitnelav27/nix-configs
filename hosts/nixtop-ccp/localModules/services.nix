@@ -12,12 +12,17 @@
         ## uncomment below to build a sd-image for raspberry pi
         #binfmt.emulatedSystems = [ "aarch64-linux" ];
         supportedFilesystems = [ "nfs" ];
+	kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             systemd-boot.enable = false;
-            efi.canTouchEfiVariables = true;
+            efi = {
+                canTouchEfiVariables = false;
+   		efiSysMountPoint = "/boot";
+	    };
             grub = {
                 enable = true;
                 efiSupport = true;
+		efiInstallAsRemovable = true;
                 device = "nodev";
             };
         };
