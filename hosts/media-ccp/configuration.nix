@@ -2,7 +2,7 @@
 
 {
   imports = [
-                /mnt/etc/nixos/hardware-configuration.nix 
+                /etc/nixos/hardware-configuration.nix 
                 ./localModules/network.nix
         #./localModules/mounts.nix
                 ./localModules/services.nix

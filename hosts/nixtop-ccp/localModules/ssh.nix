@@ -73,10 +73,10 @@
                 addKeysToAgent = "yes";
                 identityFile = "~/.ssh/id_ed25519";
             };
-            "nixtest" = {
-                hostname = "10.27.81.84";
+            "media-ccp" = {
+                hostname = "10.27.115.4";
                 port = 1186;
-                user = "dos";
+                user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
             };
         };
