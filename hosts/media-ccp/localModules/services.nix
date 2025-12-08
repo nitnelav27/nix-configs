@@ -23,7 +23,7 @@
         enable = true;
         ports = [ 1186 ];
         settings = {
-            PasswordAuthentication = false;
+            PasswordAuthentication = true;
         };
     };
 
