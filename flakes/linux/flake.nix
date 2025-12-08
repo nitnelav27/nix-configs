@@ -56,6 +56,7 @@
                 dockmedia = mkHost "dockmedia" "x86_64-linux" "docko";
 		        rengo = mkHost "rengo" "x86_64-linux" "rengo";
                 nixtest = mkHost "nixtest" "x86_64-linux" "dos";
+                media-ccp = mkHost "media-ccp" "x86_64-linux" "vvh";
             };
         };
 }
