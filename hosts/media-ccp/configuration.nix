@@ -31,6 +31,7 @@
                 extraGroups = [ "wheel" "docker" ];
                 openssh.authorizedKeys.keys = [
                     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC9CaJu6FJJ4s4NaL546RufQdrw7UB4zlChTN10avrpt valentinvergara@gmail.com"
+                    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMN8XsCLVMNTOIntJfoZ6/KS6luhHM9FfOSqN+in175h Valentin Vergara Hidd on MacOS"
                 ];
             };
         };
