@@ -12,17 +12,17 @@
         ## uncomment below to build a sd-image for raspberry pi
         #binfmt.emulatedSystems = [ "aarch64-linux" ];
         supportedFilesystems = [ "nfs" ];
-	kernelPackages = pkgs.linuxPackages_latest;
+	    kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             systemd-boot.enable = false;
             efi = {
                 canTouchEfiVariables = false;
-   		efiSysMountPoint = "/boot";
-	    };
+   		        efiSysMountPoint = "/boot";
+	        };
             grub = {
                 enable = true;
                 efiSupport = true;
-		efiInstallAsRemovable = true;
+		        efiInstallAsRemovable = true;
                 device = "nodev";
             };
         };
@@ -30,10 +30,14 @@
 
     services.openssh = {
         enable = true;
+        openFirewall = true;
         ports = [ 1186 ];
         settings = {
             PasswordAuthentication = false;
         };
+        extraConfig = ''
+            AllowTcpForwarding yes
+        '';
     };
  
     virtualisation.docker = {
@@ -96,6 +100,14 @@
     services.solaar = {
         enable = true;
         batteryIcons = "solaar";
+    };
+
+    services.timesyncd = {
+        enable  = true;
+        servers = [
+            "0.pool.ntp.org"
+            "1.pool.ntp.org"
+        ];
     };
 
 }
