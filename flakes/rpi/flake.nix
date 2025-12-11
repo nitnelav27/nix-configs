@@ -54,6 +54,7 @@
     in {
             nixosConfigurations = {
                 rpi-alx = mkHost "rpi-alx" "aarch64-linux" "vvh";
+                rpi-ccp = mkHost "rpi-ccp" "aarch64-linux" "vvh";
             };
         };
 }
