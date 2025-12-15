@@ -2,13 +2,17 @@
 
 {
   imports = [
-                /etc/nixos/hardware-configuration.nix 
-                ./localModules/network.nix
-        #./localModules/mounts.nix
-                ./localModules/services.nix
+        /etc/nixos/hardware-configuration.nix 
+        ./localModules/network.nix
+        ./localModules/mounts.nix
+        ./localModules/services.nix
+        ./localModules/graphics.nix
         #./localModules/firewall.nix
         #../../modules/media/nvidia.nix
-                ../../modules/common/storageOpt.nix
+        ../../modules/common/storageOpt.nix
+        ../../modules/media/jellyfin.nix
+        ./localModules/samba.nix
+        ../../modules/media-services/media-rengo.nix
         ]; 
 
     # Set your time zone.
@@ -50,7 +54,14 @@
     ranger
     fastfetch
     acl
+        jellyfin
+        jellyfin-web
+        jellyfin-ffmpeg
   ];
+
+  environment.sessionVariables = {
+        LIBVA_DRIVER_NAME = "iHD";
+    };
 
    
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
