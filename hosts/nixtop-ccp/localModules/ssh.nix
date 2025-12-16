@@ -49,14 +49,7 @@
                 port = 1186;
                 user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
-            };
-            "hopper-gmu" = {
-                hostname = "amd004";
-                user = "vvergara";
-                port = 22;
-                proxyJump = "hopper-gmu-headnode";
-                identityFile = "~/.ssh/id_ed25519";
-            };
+            }; 
             "hopper-gmu-headnode" = {
                 hostname = "hopper.orc.gmu.edu";
                 user = "vvergara";
@@ -77,6 +70,19 @@
                 hostname = "10.27.115.4";
                 port = 1186;
                 user = "vvh";
+                identityFile = "~/.ssh/id_ed25519";
+            };
+            "rpi-ccp" = {
+                hostname = "10.27.115.3";
+                port = 1186;
+                user = "vvh";
+                identityFile = "~/.ssh/id_ed25519";
+            };
+            "hopper-gmu" = {
+                hostname = "amd004";
+                user = "vvergara";
+                port = 22;
+                proxyJump = "hopper-gmu-headnode";
                 identityFile = "~/.ssh/id_ed25519";
             };
         };
