@@ -4,6 +4,7 @@
     # Use Raspberry pi Kernel boot.
     boot = {
         kernelParams = [ "dtparam=nvme" ];
+        kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             grub.enable = false;
             raspberryPi.bootloader = "kernel";
@@ -12,10 +13,6 @@
 
     networking = {
         hostName = "rpi-ccp";
-        #networkManager = {
-        #    enable = true;
-        #    dns = "none";
-        #};
         useDHCP = false;
         dhcpcd.enable = false;
         interfaces.end0 = {
@@ -34,11 +31,20 @@
 
     programs.ssh.startAgent = true;
 
-    services.openssh = {
-        enable = true;
-        ports = [ 1186 ];
-        settings = {
-            PasswordAuthentication = true;
+    services = {
+        openssh = {
+            enable = true;
+            ports = [ 1186 ];
+            settings = {
+                PasswordAuthentication = true;
+            };
+        };
+        timesyncd = {
+            enable = true;
+            servers = [ 
+                "pool.ntp.org" 
+                "time.google.com" 
+            ];
         };
     };
  
