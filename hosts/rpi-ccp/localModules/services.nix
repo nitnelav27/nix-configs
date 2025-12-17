@@ -4,7 +4,7 @@
     # Use Raspberry pi Kernel boot.
     boot = {
         kernelParams = [ "dtparam=nvme" ];
-        kernelPackages = pkgs.linuxPackages_latest;
+        #kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             grub.enable = false;
             raspberryPi.bootloader = "kernel";

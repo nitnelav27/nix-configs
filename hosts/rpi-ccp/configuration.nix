@@ -12,10 +12,11 @@
     ];
 
     ## swap
-    swapDevices = [{
-        device = "/var/lib/swapfile";
-        size = 2048; ## size in megabytes
-    }];
+    swapDevices = [];
+    #swapDevices = [{
+    #    device = "/var/lib/swapfile";
+    #    size = 2*1024; ## size in megabytes
+    #}];
 
     nixpkgs.config.allowUnfree = true;
 

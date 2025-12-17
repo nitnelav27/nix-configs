@@ -9,6 +9,7 @@
     imports = [
         ../../modules/common/terminals.nix
         ./localModules/myshell.nix
+        ./localModules/homePkgs.nix
         ../../modules/common/homeBase.nix
         ../../modules/common/neovim.nix
         #../../modules/common/git.nix
