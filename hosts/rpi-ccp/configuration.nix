@@ -8,15 +8,12 @@
     imports = [
         /etc/nixos/hardware-configuration.nix
         ./localModules/services.nix
+        ./localModules/firewall.nix
         ../../modules/common/storageOpt.nix
     ];
 
     ## swap
     swapDevices = [];
-    #swapDevices = [{
-    #    device = "/var/lib/swapfile";
-    #    size = 2*1024; ## size in megabytes
-    #}];
 
     nixpkgs.config.allowUnfree = true;
 
