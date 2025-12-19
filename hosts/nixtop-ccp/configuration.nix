@@ -30,7 +30,7 @@
         useDHCP = false;
         dhcpcd.enable = false;
         nameservers = [
-            "8.8.8.8"
+            "10.27.115.1"
             #"10.27.81.3"
             #"10.27.81.19"
         ];
