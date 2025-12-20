@@ -23,39 +23,39 @@
         fsType = "ext4";
     };
     ## BIND MOUNTS: calibre 
-    #fileSystems."/export/calibre" = {
-    #            device = "/storage/nas/calibre";
-    #            options = [ "bind" ];
-    #    };
+    fileSystems."/export/calibre" = {
+                device = "/storage/nas/calibre";
+                options = [ "bind" ];
+        };
   ## BIND MOUNTS: data
-    #fileSystems."/export/data" = {
-    #            device = "/storage/nas/data";
-    #            options = [ "bind" ];
-    #    };
+    fileSystems."/export/data" = {
+                device = "/storage/nas/data";
+                options = [ "bind" ];
+        };
   ## BIND MOUNTS: dump 
-    #fileSystems."/export/dump" = {
-    #            device = "/storage/nas/dump";
-    #            options = [ "bind" ];
-    #    };
+    fileSystems."/export/dump" = {
+                device = "/storage/nas/dump";
+                options = [ "bind" ];
+        };
   ## BIND MOUNTS: migration
-    #fileSystems."/export/migration" = {
-    #            device = "/storage/nas/migration";
-    #            options = [ "bind" ];
-    #    };
+    fileSystems."/export/migration" = {
+                device = "/storage/nas/migration";
+                options = [ "bind" ];
+        };
   ## BIND MOUNTS: docs
-#fileSystems."/export/docs" = {
-    #           device = "/storage/nas/docs";
-    #           options = [ "bind" ];
-    #   };
+    fileSystems."/export/docs" = {
+               device = "/storage/nas/docs";
+               options = [ "bind" ];
+       };
   ## BIND MOUNTS: results
-    #fileSystems."/export/results" = {
-    #           device = "/storage/nas/results";
-    #           options = [ "bind" ];
-    #   };
+    fileSystems."/export/results" = {
+               device = "/storage/nas/results";
+               options = [ "bind" ];
+       };
   ## BIND MOUNTS: decreto
-    #fileSystems."/export/.decreto" = {
-    #           device = "/storage/.decreto";
-    #           options = [ "bind" ];
-    #   };
+    fileSystems."/export/.decreto" = {
+               device = "/storage/.decreto";
+               options = [ "bind" ];
+       };
 
 }

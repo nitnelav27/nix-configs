@@ -4,11 +4,10 @@
   imports = [
         /etc/nixos/hardware-configuration.nix 
         ./localModules/network.nix
+        ./localModules/firewall.nix
         ./localModules/mounts.nix
         ./localModules/services.nix
         ./localModules/graphics.nix
-        #./localModules/firewall.nix
-        #../../modules/media/nvidia.nix
         ../../modules/common/storageOpt.nix
         ../../modules/media/jellyfin.nix
         ./localModules/samba.nix
