@@ -8,7 +8,7 @@
     imports = [
         /etc/nixos/hardware-configuration.nix
         ./localModules/services.nix
-        #./localModules/mounts.nix
+        ./localModules/mounts.nix
         ../../modules/common/storageOpt.nix
     ];
 

@@ -1,10 +1,12 @@
 { config, lib, pkgs, ... }:
 let
         HOME = "/home/vsvh";
-        nasLocation = "10.27.81.4";
+        nasLocation = "10.27.115.4";
         commonOpts = [
-          "x-systemd.automount"
-          "x-systemd.requires=network-online.target"
+            "nfsvers=4.2"
+            "x-systemd.automount"
+            "x-systemd.requires=network-online.target"
+            "x-systemd.idle-timeout=180" ## disconnects after 3 minutes
         ];
 in
 {
