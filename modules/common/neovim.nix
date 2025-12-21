@@ -252,9 +252,13 @@
                         enable = true;
                         dap.enable = true;
                         format.enable = true;
-                        format.type = "black";
+                        format.type = [
+                            "black"
+                        ];
                         lsp.enable = true;
-                        lsp.server = "pyright";
+                        lsp.servers = [
+                            "pyright"
+                        ];
                     };
                     markdown = {
                         enable = true;
