@@ -18,9 +18,7 @@
         size = 16*1024; # Size in megabytes
     }];
 
-    # To get ride of the warning when building system 
-    nix.settings.download-buffer-size = 4096*1024;
-
+    
     networking = {
         hostName = "nixtop-ccp";
         networkmanager = {
@@ -133,9 +131,14 @@
 
     # List services that you want to enable:
 
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    ## change this to build sd-installer for raspberry pi
-    nix.settings.sandbox = true;
+    # To get ride of the warning when building system 
+    nix.settings = {
+        download-buffer-size = 4096*1024;
+        sandbox = true;
+        experimental-features = [ "nix-command" "flakes" ];
+        substituters = ["https://hyprland.cachix.org"];
+        trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
 
     # Copy the NixOS configuration file and link it from the resulting system
     # (/run/current-system/configuration.nix). This is useful in case you

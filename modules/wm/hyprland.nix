@@ -4,6 +4,7 @@
     ## Hyprland config
     wayland.windowManager.hyprland = {
         enable = true;
+        systemd.enable = false;
         settings = {
             monitor = [
                 #"DP-3, 3440x1440@99.98, 0x0, 1"
@@ -228,15 +229,15 @@
                 "10"
             ];
             ###### Window rules
-            windowrule = [
-                "workspace 1, match:class firefox"
-                "workspace 6, match:class thunderbird"
-                "workspace 7, match:class Slack"
-                "workspace 7, match:class teams-for-linux"
-                "workspace 2, match:class emacs"
-                "suppress_event maximize, match:class .*"
-                "match:focus false, match:class ^$, match:title ^$,match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
-            ];
+            #windowrule = [
+            #    "workspace 1, match:class firefox"
+            #    "workspace 6, match:class thunderbird"
+            #    "workspace 7, match:class Slack"
+            #    "workspace 7, match:class teams-for-linux"
+            #    "workspace 2, match:class emacs"
+            #    "suppress_event maximize, match:class .*"
+            #    "match:focus false, match:class ^$, match:title ^$,match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+            #];
         };
     };
 }
