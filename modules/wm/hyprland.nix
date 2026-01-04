@@ -229,15 +229,15 @@
                 "10"
             ];
             ###### Window rules
-            #windowrule = [
-            #    "workspace 1, match:class firefox"
-            #    "workspace 6, match:class thunderbird"
-            #    "workspace 7, match:class Slack"
-            #    "workspace 7, match:class teams-for-linux"
-            #    "workspace 2, match:class emacs"
-            #    "suppress_event maximize, match:class .*"
-            #    "match:focus false, match:class ^$, match:title ^$,match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
-            #];
+            windowrule = [
+                "match:class firefox, workspace 1"
+                "match:class thunderbird, workspace 6"
+                "match:class Slack, workspace 7"
+                "match:class teams-for-linux, workspace 8"
+                "match:class emacs, workspace 2"
+                #"suppress_event maximize, match:class .*"
+                #"match:focus false, match:class ^$, match:title ^$,match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+            ];
         };
     };
 }

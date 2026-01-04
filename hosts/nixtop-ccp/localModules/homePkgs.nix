@@ -15,6 +15,7 @@
         gcc
         gnumake
         gnuplot
+        grim
         grimblast
         hugo
         hypridle
@@ -47,6 +48,7 @@
         slurp
         sqlite
         supersonic-wayland
+        swaybg
         texlab
         teams-for-linux 
         thunderbird
@@ -55,6 +57,7 @@
         waybar
         wl-clipboard
         wlogout
+        wmenu
         wordnet
         xfce.thunar
         zathura
