@@ -17,6 +17,7 @@
             "raspberry-pi-imager"
             "logi-options+"
             "ghostty"
+            "spotify"
         ];
         brews = [
             "imagemagick"
