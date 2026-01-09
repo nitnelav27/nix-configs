@@ -32,6 +32,7 @@
         luajitPackages.luacheck
         nwg-displays
         nwg-look
+        openconnect
         p7zip
         pandoc
         python3
