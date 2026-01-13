@@ -60,7 +60,7 @@
         wlogout
         wmenu
         wordnet
-        xfce.thunar
+        thunar
         zathura
         zoom-us
     ];
