@@ -20,12 +20,6 @@
                     TERM = "xterm-256color";
                 };
             };
-            "dockmedia" = {
-                hostname = "10.27.81.4";
-                port = 1186;
-                user = "docko";
-                identityFile = "~/.ssh/id_ed25519";
-            };
             "proxmox" = {
                 hostname = "10.27.81.2";
                 port = 1186;
@@ -33,13 +27,13 @@
                 identityFile = "~/.ssh/id_ed25519";
             };
             "macbook" = {
-                hostname = "10.27.81.81";
+                hostname = "10.27.115.81";
                 port = 1186;
                 user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
             };
             "macbook-wired" = {
-                hostname = "10.27.81.82";
+                hostname = "10.27.115.82";
                 port = 1186;
                 user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
@@ -50,12 +44,6 @@
                 user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
             }; 
-            "hopper-gmu-headnode" = {
-                hostname = "hopper.orc.gmu.edu";
-                user = "vvergara";
-                port = 22;
-                identityFile = "~/.ssh/id_ed25519";
-            };
             "github.com" = {
                 port = 22;
                 addKeysToAgent = "yes";
@@ -76,13 +64,6 @@
                 hostname = "10.27.115.3";
                 port = 1186;
                 user = "vvh";
-                identityFile = "~/.ssh/id_ed25519";
-            };
-            "hopper-gmu" = {
-                hostname = "hop043";
-                user = "vvergara";
-                port = 22;
-                proxyJump = "hopper-gmu-headnode";
                 identityFile = "~/.ssh/id_ed25519";
             };
         };
