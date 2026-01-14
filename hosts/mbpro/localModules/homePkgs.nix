@@ -17,5 +17,6 @@
         uv
 	    wget
         zathura
+        python3
     ]; 
 }
