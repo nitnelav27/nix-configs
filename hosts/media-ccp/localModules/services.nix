@@ -31,7 +31,7 @@
             settings = {
                 #nfsd.udp = false;
                 nfsd.vers3 = false;
-                nfsd.vers4 = false;
+                nfsd.vers4 = true;
                 nfsd."vers4.2" = true;
             };
             server = {
