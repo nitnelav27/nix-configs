@@ -14,8 +14,8 @@
             "mactex"
 	        "whatsapp"
 	        "via"
-            "raspberry-pi-imager"
-            "logi-options+"
+#"raspberry-pi-imager"
+#"logi-options+"
             "ghostty"
             "spotify"
         ];
