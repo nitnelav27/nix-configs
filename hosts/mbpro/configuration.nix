@@ -14,7 +14,7 @@
 
     # System settings
     system.stateVersion = 6;
-    networking.hostName = hostname;
+    networking.hostName = "mbpro";
     
     ## System Packages 
     nixpkgs.config = { 

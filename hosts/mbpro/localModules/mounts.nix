@@ -3,8 +3,10 @@ let
     nfsMount = name: device: mountPoint: {
         serviceConfig = {
             ProgramArguments = [
+                "/bin/sh"
+                "-c"
                 "/sbin/mount_nfs"
-                "-o" "resvport,soft,bg,tcp,noatime,nfsvers=4.2,noowners"
+                "-o" "resvport,soft,bg,tcp,noatime,intr,nfsvers=4.2,noowners"
                 device 
                 mountPoint
             ];
