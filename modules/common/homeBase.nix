@@ -26,6 +26,7 @@
         shellcheck
         tree
         unzip
+        zip
         ### Fonts start here
         barlow
         fira
