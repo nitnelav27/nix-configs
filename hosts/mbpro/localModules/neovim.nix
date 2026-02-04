@@ -45,7 +45,6 @@
                     "plenary-nvim"
                     "snacks-nvim"
                     "todo-comments-nvim"
-                    "trouble"
                     "which-key-nvim"
                     pkgs.vimPlugins.vimtex
                     pkgs.vimPlugins.cmp-vimtex
@@ -238,12 +237,6 @@
                     enableDAP = true;
                     enableExtraDiagnostics = true;
                     enableTreesitter = true;
-                    astro = {
-                      enable = false;
-                      format = {
-                        package = pkgs.nodePackages.prettier;
-                      };
-                    };
                     bash = {
                         enable = true;
                         format.enable = true;
@@ -258,12 +251,12 @@
                         enable = true;
                         dap.enable = true;
                         format.enable = true;
-                        format.type = "black";
+                        format.type = ["black"];
                         lsp.enable = true;
-                        lsp.server = "pyright";
+                        lsp.server = ["pyright"];
                     };
                     markdown = {
-                        enable = true;
+                        enable = false;
                         format.enable = true;
                         lsp.enable = true;
                         extensions = {

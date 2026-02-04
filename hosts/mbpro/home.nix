@@ -10,7 +10,7 @@
         ../../modules/common/homeBase.nix
         ./localModules/homePkgs.nix
         ./localModules/git.nix
-        ../../modules/common/neovim.nix
+        ./localModules/neovim.nix
         ../../modules/utils/vscode.nix
         ../../modules/common/yazi.nix
         ../../modules/media/mpv.nix

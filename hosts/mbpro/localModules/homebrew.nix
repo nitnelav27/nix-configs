@@ -14,10 +14,12 @@
             "mactex"
 	        "whatsapp"
 	        "via"
+            "ollama"
 #"raspberry-pi-imager"
 #"logi-options+"
             "ghostty"
             "spotify"
+            "rar"
         ];
         brews = [
             "imagemagick"
