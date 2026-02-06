@@ -45,7 +45,6 @@
                     "plenary-nvim"
                     "snacks-nvim"
                     "todo-comments-nvim"
-                    "trouble"
                     "which-key-nvim"
                     pkgs.vimPlugins.vimtex
                     pkgs.vimPlugins.cmp-vimtex

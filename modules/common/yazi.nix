@@ -34,6 +34,18 @@
                 macro_workers = 10;
                 bizarre_retry = 5;
             };
+
+            opener = {
+                pdf_reader = [
+                    { run = ''zathura "$@"''; desc = "Zathura"; block = true; }
+                ];
+            };
+
+            open = {
+                rules = [
+                    { mime = "application/pdf"; use = "pdf_reader"; }
+                ];
+            };
         };
     };
 }
