@@ -272,6 +272,11 @@
                     html = {
                         enable = true;
                         treesitter.autotagHtml = true;
+                        # Disable the failing package specifically
+                        lsp = {
+                            enable = true;
+                            servers = [ "emmet-ls" ];
+                        };
                     };
                     lua.enable = true;
                     #tex = {

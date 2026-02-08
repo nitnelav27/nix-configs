@@ -2,6 +2,7 @@
 
 let
     portList = [
+        111  ## NFS
         2049 ## NFS
     ];
 
