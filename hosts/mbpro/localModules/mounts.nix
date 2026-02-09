@@ -7,7 +7,7 @@ let
                 "/bin/sh"
                 "-c"
                 "/sbin/mount_nfs"
-                "-o" "resvport,soft,bg,tcp,noatime,intr,nfsvers=4.2,noowners ${serverIP}:${remotePath} ${mountPoint}"
+                "-o" "resvport,soft,bg,tcp,noatime,intr,nfsvers=4,noowners ${serverIP}:${remotePath} ${mountPoint}"
             ];
             RunAtLoad = true;
             StandardErrorPath = "/var/log/mount-${name}.err.log";
