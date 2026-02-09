@@ -44,7 +44,7 @@ in
                 mountdPort = 4002;
                 statdPort = 4000;
                 exports = ''
-                    /export           ${clients},fsid=0
+                    /export           10.27.115.115/32(insecure,rw,no_subtree_check,fsid=0) 10.27.115.81/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check,fsid=0) 10.27.115.82/32(insecure,rw,sync,all_squash,anonuid=1000,anongid=1000,no_subtree_check,fsid=0)
                     /export/.decreto  ${clients}
                     /export/calibre   ${clients}
                     /export/data      ${clients}
