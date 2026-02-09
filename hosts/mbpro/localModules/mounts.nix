@@ -6,8 +6,14 @@ let
             ProgramArguments = [
                 "/bin/sh"
                 "-c"
-                "/sbin/mount_nfs"
-                "-o" "resvport,soft,bg,tcp,noatime,intr,nfsvers=4,noowners ${serverIP}:${remotePath} ${mountPoint}"
+                ''
+                # Wait until the network is actually reachable
+                until /sbin/ping -c 1 -t 5 ${serverIP}; do sleep 5; done
+          
+                # Check if already mounted
+                /sbin/mount | grep -q "${mountPoint}" || \
+                /sbin/mount_nfs -o resvport,soft,bg,tcp,noatime,intr,nfsvers=3,noowners ${serverIP}:${remotePath} ${mountPoint}
+                ''
             ];
             RunAtLoad = true;
             StandardErrorPath = "/var/log/mount-${name}.err.log";
