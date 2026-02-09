@@ -40,6 +40,9 @@ in
             };
             server = {
                 enable = true;
+                lockdPort = 4001;
+                mountdPort = 4002;
+                statdPort = 4000;
                 exports = ''
                     /export           ${clients},fsid=0
                     /export/.decreto  ${clients}
