@@ -7,7 +7,7 @@
         #kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             grub.enable = false;
-            raspberryPi.bootloader = "kernel";
+            raspberry-pi.bootloader = "kernel";
         };
     };
 
