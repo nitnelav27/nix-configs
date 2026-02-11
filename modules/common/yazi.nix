@@ -36,12 +36,26 @@
             };
 
             opener = {
+                edit = [
+                    { run = ''nvim "$@"''; block = true; desc = "Neovim"; }
+                ];
+                play = [
+                    { run = ''mpv "$@"''; orphan = true; desc = "MPV"; }
+                ];
                 pdf_reader = [
                     { run = ''zathura "$@"''; desc = "Zathura"; block = true; }
-                ];
-            };
+                ];            };
 
             open = {
+                prepend_rules = [
+                    # Use Neovim for all plain text
+                    { mime = "text/*"; use = "edit"; }
+                    # Explicitly catch .nix files
+                    { name = "*.nix"; use = "edit"; }
+                    # Common media openers
+                    { mime = "video/*"; use = "play"; }
+                    { mime = "audio/*"; use = "play"; }
+                ];
                 rules = [
                     { mime = "application/pdf"; use = "pdf_reader"; }
                 ];

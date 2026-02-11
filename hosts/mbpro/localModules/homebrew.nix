@@ -8,7 +8,6 @@
             "slack"
             "microsoft-office"
             "calibre"
-            "microsoft-teams"
             "zoom"
             "adobe-acrobat-reader"
             "mactex"
@@ -18,7 +17,7 @@
 #"raspberry-pi-imager"
 #"logi-options+"
             "ghostty"
-            "spotify"
+#"spotify"
             "rar"
         ];
         brews = [
