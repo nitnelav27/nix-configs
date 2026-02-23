@@ -1,5 +1,26 @@
 { config, lib, pkgs, inputs, ... }:
-
+let
+  # Replace 'username' with your actual user
+  wallpaperDir = "/home/vsvh/pix/wp"; 
+  
+  # A script that picks a random file and starts hyprpaper
+  randomWall = pkgs.writeShellScriptBin "random-wall" ''
+    if [ -d "${wallpaperDir}" ]; then
+      # Pick a random file from the directory
+      WALLPAPER=$(find "${wallpaperDir}" -type f | shuf -n 1)
+      
+      # Terminate any existing hyprpaper instances
+      pkill hyprpaper
+      
+      # Generate a temporary config for hyprpaper
+      echo "preload = $WALLPAPER" > /tmp/hyprpaper.conf
+      echo "wallpaper = ,$WALLPAPER" >> /tmp/hyprpaper.conf
+      
+      # Start hyprpaper with the temp config
+      ${pkgs.hyprpaper}/bin/hyprpaper -c /tmp/hyprpaper.conf
+    fi
+  '';
+in
 {
     ## Hyprland config
     wayland.windowManager.hyprland = {
@@ -22,7 +43,8 @@
             # Autostart necessary processes (like notifications daemons, status bars, etc.)
             # Or execute your favorite apps at launch like this:
             exec-once = [
-                "$HOME/.config/hypr/scripts/wallpaper-hyprland"
+                "${randomWall}/bin/random-wall"
+                #"$HOME/.config/hypr/scripts/wallpaper-hyprland"
                 "$HOME/.config/hypr/scripts/xdg_bar"
                 "wl-paste --type text --watch cliphist store"
                 "wl-paste --type image --watch cliphist store"

@@ -1,5 +1,26 @@
 { config, pkgs, lib, inputs, ... }:
 
+let 
+wallpaperDir = "/home/vsvh/pix/wp";
+
+randomWall = pkgs.writeShellScriptBin "random-wall" ''
+    if [ -d "${wallpaperDir}" ]; then
+      # Pick a random file from the directory
+      WALLPAPER=$(find "${wallpaperDir}" -type f | shuf -n 1)
+      
+      # Terminate any existing hyprpaper instances
+      pkill hyprpaper
+      
+      # Generate a temporary config for hyprpaper
+      echo "preload = $WALLPAPER" > /tmp/hyprpaper.conf
+      echo "wallpaper = ,$WALLPAPER" >> /tmp/hyprpaper.conf
+      
+      # Start hyprpaper with the temp config
+      ${pkgs.hyprpaper}/bin/hyprpaper -c /tmp/hyprpaper.conf
+    fi
+  '';
+in
+
 {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -22,7 +43,7 @@
         ./localModules/ssh.nix 
         ../../modules/common/yazi.nix
     ];
-
+    home.packages = [ pkgs.hyprpaper randomWall ];
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
     # introduces backwards incompatible changes.
