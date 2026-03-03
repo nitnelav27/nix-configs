@@ -5,7 +5,7 @@
         bluez
         bluez-tools
         blueman
-        calibre
+        #calibre
         cmake
         emacs
         enchant
