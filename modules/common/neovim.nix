@@ -23,6 +23,14 @@
                         package = nvim-autopairs;
                         setup = ''require("nvim-autopairs").setup {}'';
                     };
+                    vimtex = {
+                        package = vimtex;
+                        setup = ''
+                            -- VimTeX configuration in Vimscript (it's a Vimscript plugin)
+                            vim.g.vimtex_view_method = 'zathura'
+                            vim.g.vimtex_compiler_method = 'latexmk'
+                        '';
+                    };
                 };
                 startPlugins = [
                     "obsidian-nvim"
@@ -231,6 +239,8 @@
                     trouble = {
                         enable = true;
                     };
+                    lspconfig.enable = true;
+                    servers.texlab.enable = true;
                 };
                 languages = {
                     enableFormat = true;
@@ -279,13 +289,6 @@
                         };
                     };
                     lua.enable = true;
-                    #tex = {
-                    #enable = true;
-                    #lsp = {
-                    #enable = true;
-                    #package = pkgs.texlab;
-                    #};
-                    #};
                 };
             };
         };
