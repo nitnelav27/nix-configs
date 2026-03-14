@@ -3,6 +3,7 @@
 {
     services.qbittorrent = {
         enable = true;
+        package = pkgs.qbittorrent-nox;
         user = "vvh";
         group = "vvh";
         openFirewall = true;

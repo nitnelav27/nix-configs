@@ -9,5 +9,6 @@
         ./deluge.nix
         ./prowlarr.nix
         ./navidrome.nix
+        ./qbittorrent.nix
     ];
 }
