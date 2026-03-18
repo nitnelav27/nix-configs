@@ -31,6 +31,22 @@
                             vim.g.vimtex_compiler_method = 'latexmk'
                         '';
                     };
+                    telescope-bibtex-nvim = {
+                        package = (pkgs.vimUtils.buildVimPlugin {
+                            name = "telescope-bibtex-nvim";
+                            src = pkgs.fetchFromGitHub {
+                                owner = "nvim-telescope";
+                                repo = "telescope-bibtex.nvim";
+                                rev = "master"; 
+                                hash = "sha256-xaGTJ69mknIn1esXw2maU03GnX85ficqXLD+ykkyi90="; 
+                            };
+                        }).overrideAttrs (old: {
+                            # This line stops the build from failing due to missing telescope during check
+                            doCheck = false; 
+                            nvimRequireCheck = null;
+                        });
+                        setup = ''require("telescope").load_extension("bibtex")'';
+                    };
                 };
                 startPlugins = [
                     "obsidian-nvim"
@@ -45,7 +61,6 @@
                     "mini-ai"
                     "mini-icons"
                     "mini-pairs"
-                    "noice-nvim"
                     "nui-nvim"
                     "nvim-lint"
                     "nvim-lspconfig"
@@ -64,20 +79,66 @@
                     pkgs.vimPlugins.trouble-nvim
                 ];
                 luaConfigPost = ''
+                    -- 1. Register the LaTeX group for which-key (Matches Doom Emacs style)
+                    local wk = require("which-key")
+                    wk.add({
+                        { "<leader>l", group = "latex" },
+                    })
+
+                    -- 2. Force VimTeX mappings and ensure they load for .tex files
+                    vim.api.nvim_create_autocmd("FileType", {
+                        pattern = "tex",
+                        callback = function()
+                        local opts = { buffer = true, silent = true }
+        
+                    -- Start/Stop Compilation
+                    vim.keymap.set('n', '<leader>ll', '<cmd>VimtexCompile<cr>', 
+                    { buffer = true, desc = "Compile/Stop LaTeX" })
+            
+                    -- View PDF in Zathura (Matches config.org preference)
+                    vim.keymap.set('n', '<leader>lv', '<cmd>VimtexView<cr>', 
+                    { buffer = true, desc = "View PDF (Zathura)" })
+            
+                    -- Open VimTeX Info (useful for troubleshooting)
+                    vim.keymap.set('n', '<leader>li', '<cmd>VimtexInfo<cr>', 
+                    { buffer = true, desc = "VimTeX Info" })
+                    end
+                    })
                     -- Configure Python DAP
                     require('dap-python').setup('python')
                     -- VIM options
                     vim.g.vimtex_view_method = 'zathura'
+                    vim.g.tex_conceal = 'abdmg'
                     vim.g.vimtex_compiler_latexmk = {
                         executable = 'latexmk',
                         options = {
-                            '-xelatex',
+                            '-pdf',
                             '-verbose',
                             '-file-line-error',
                             '-synctex=1',
                             '-interaction=nonstopmode',
                         }
                     }
+                    vim.keymap.set('v', '<leader>doi', function()
+                        -- Yank the visually selected DOI
+                        vim.cmd('normal! "dy')
+                        local doi = vim.fn.getreg('d')
+                        doi = doi:gsub("^%s*(.-)%s*$", "%1") -- trim whitespace
+                        
+                        if doi ~= "" then
+                            -- Use curl to fetch the BibTeX entry from doi.org
+                            local cmd = string.format("curl -sLH 'Accept: application/x-bibtex' https://doi.org/%s", doi)
+                            local bibtex_entry = vim.fn.systemlist(cmd)
+                            
+                            if vim.v.shell_error == 0 then
+                                -- Paste the fetched entry below the current line
+                                vim.api.nvim_put(bibtex_entry, 'l', true, true)
+                                print("DOI fetched successfully!")
+                            else
+                                print("Failed to fetch DOI.")
+                            end
+                        end
+                    end, { desc = "Fetch BibTeX from DOI" })
                 '';
                 pluginRC = {
                     nvim-notify = ''
@@ -233,6 +294,7 @@
                     smartindent = true;
                     shiftwidth = 4;
                     breakindent = true;
+                    conceallevel = 2;
                 };
                 lsp = {
                     enable = true;

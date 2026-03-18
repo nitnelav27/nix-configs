@@ -5,6 +5,7 @@
         enable = true;
         enableZshIntegration = true;
         package = pkgs.yazi.override { _7zz = pkgs._7zz-rar; };
+        shellWrapperName = "y";
         settings = {
             mgr = {
                 ratio = [ 1 4 3 ];
