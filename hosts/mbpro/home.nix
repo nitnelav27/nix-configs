@@ -6,7 +6,7 @@
 
     imports = [
         ../../modules/common/terminals.nix
-        ./localModules/myshell.nix
+        ../../modules/common/myshell.nix
         ../../modules/common/homeBase.nix
         ./localModules/homePkgs.nix
         ./localModules/git.nix
@@ -28,7 +28,7 @@
         JUPYTER_CONFIG_DIR = "$HOME/.config/jupyter";
         EDITOR = "nvim";
         VISUAL = "nvim";
-        TERMINAL = "kitty";  # Confirmed macOS compatible
+        TERMINAL = "ghostty";  # Confirmed macOS compatible
         VIDEO = "mpv";
         OPENER = "open";     # macOS native opener
         PAGER = "less";

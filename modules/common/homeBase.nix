@@ -21,8 +21,9 @@
         hunspellDicts.es_CL
         iperf
         killall
-        nixfmt
         pyright
+        nixpkgs-fmt
+        nil
         shellcheck
         tree
         unzip
@@ -45,7 +46,11 @@
             nerd-fonts.meslo-lg
             nerd-fonts.symbols-only
                 ### End of fonts
-    ];
+    ]
+    # Logic: Only add nixfmt if we are NOT on Darwin
+    ++ lib.optionals (!pkgs.stdenv.isDarwin) [ 
+        nixfmt 
+    ]; 
 
     fonts = {
         fontconfig.enable = true;

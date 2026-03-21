@@ -77,7 +77,7 @@
                     "networkmanager"
                 ];
                 openssh.authorizedKeys.keys = [
-                    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMN8XsCLVMNTOIntJfoZ6/KS6luhHM9FfOSqN+in175h Valentin Vergara Hidd on MacOS"
+                    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJCb1Zizshyqfe8h8SprkjkgDqKe+PMPDT6WvEjF+wT MacOS on mbpro m5 pro"
                 ];
             };
         };

@@ -13,10 +13,11 @@
         gnumake
         gnuplot
         jq
+        alejandra ### nix formatter
         texlab
-        uv
+#uv
 	    wget
         zathura
-        python3
+#python3
     ]; 
 }
