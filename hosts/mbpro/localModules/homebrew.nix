@@ -6,7 +6,6 @@
             "firefox"
             "kitty"
             "slack"
-            "microsoft-office"
             "calibre"
             "zoom"
             "adobe-acrobat-reader"

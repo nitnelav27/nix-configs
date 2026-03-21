@@ -3,7 +3,7 @@
 {
     ## Imports
     imports = [
-        ./localModules/mounts.nix
+        #./localModules/mounts.nix
         ./localModules/system.nix
         ./localModules/homebrew.nix
         ./localModules/storageOpt.nix

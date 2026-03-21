@@ -8,7 +8,7 @@
         # Cross-platform packages
         ripgrep
         cmake
-        emacs
+        #emacs
         gcc
         gnumake
         gnuplot
