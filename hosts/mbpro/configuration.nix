@@ -24,7 +24,9 @@
     environment.systemPackages = with pkgs; [
         mkalias
         vim
-	    home-manager
+        uv
+        python314
+	      home-manager
     ]; 
 
     ## Environment variables to help with darwin compilation

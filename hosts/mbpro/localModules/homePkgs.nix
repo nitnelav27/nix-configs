@@ -15,6 +15,7 @@
         jq
         alejandra ### nix formatter
         texlab
+        windsurf
 #uv
 	    wget
         zathura

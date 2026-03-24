@@ -28,6 +28,9 @@
         tree
         unzip
         zip
+        ## Testing python environments
+        direnv
+        nix-direnv
         ### Fonts start here
         barlow
         fira

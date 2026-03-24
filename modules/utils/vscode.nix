@@ -3,6 +3,7 @@
 {
     programs.vscode = {
         enable = true;
+        mutableExtensionsDir = true;
         profiles.default.extensions = with pkgs.vscode-extensions; [
             dracula-theme.theme-dracula
             vscodevim.vim 
@@ -14,6 +15,7 @@
             ltex-plus.vscode-ltex-plus # grammar/spell checking
             arcticicestudio.nord-visual-studio-code
             ms-vscode-remote.remote-ssh
+            ms-python.python
             ms-python.vscode-pylance
             github.copilot
             ms-vscode-remote.vscode-remote-extensionpack
