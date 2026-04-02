@@ -18,6 +18,7 @@
             "ghostty"
 #"spotify"
             "rar"
+            "skim"
         ];
         brews = [
             "imagemagick"

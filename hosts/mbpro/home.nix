@@ -25,6 +25,7 @@
         XDG_CONFIG_HOME = "$HOME/.config";
         DOOMDIR = "$HOME/.config/doom";
         IPYTHONDIR = "$HOME/.config/ipython";
+        PYRIGHT_PYTHON_FORCE_VERSION = "3.14";
         JUPYTER_CONFIG_DIR = "$HOME/.config/jupyter";
         EDITOR = "nvim";
         VISUAL = "nvim";

@@ -3,7 +3,7 @@
 {
     ## Imports
     imports = [
-        #./localModules/mounts.nix
+        ./localModules/mounts.nix
         ./localModules/system.nix
         ./localModules/homebrew.nix
         ./localModules/storageOpt.nix
@@ -21,6 +21,13 @@
         allowUnfree = true;
         allowUnsupportedSystem = true;
     };
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        ruby_4_0 = prev.ruby_3_3; # Maps the non-existent ruby_4_0 to 3.3
+      })
+    ];
+
     environment.systemPackages = with pkgs; [
         mkalias
         vim
