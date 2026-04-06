@@ -91,6 +91,13 @@
     services.displayManager.sddm = {
         enable = true;
         wayland.enable = true;
+        # Force SDDM to use the wayland greeting even if it defaults to X11
+        settings = {
+          General = {
+            DisplayServer = "wayland";
+            GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
+          };
+        };
         theme = "sddm-astronaut-theme";
         package = pkgs.kdePackages.sddm;
         extraPackages = [
@@ -126,5 +133,12 @@
     };
 
     systemd.services.display-manager.after = [ "nvidia-drm-output.target" ];
+
+    systemd.user.extraConfig = ''
+        DefaultEnvironment="PATH=/usr/bin:/bin"
+        DefaultEnvironment="LIBVA_DRIVER_NAME=nvidia"
+        DefaultEnvironment="GBM_BACKEND=nvidia-drm"
+        DefaultEnvironment="__GLX_VENDOR_LIBRARY_NAME=nvidia"
+    '';
 
 }

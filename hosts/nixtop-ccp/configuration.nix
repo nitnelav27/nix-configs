@@ -114,23 +114,34 @@
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    environment.systemPackages = with pkgs; [
-        vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default. 
-        wget
-        rsync
-        home-manager
-        fastfetch 
-        sddm-astronaut
-        #libsForQt5.qt5.qtgraphicaleffects
-        uv
-        rpi-imager
-        zstd
-        #(catppuccin-sddm.override {
-        #    flavor = "frappe";
-        #    font = "Fira Sans";
-        #    fontSize = "15";
-        #})
-    ];
+    environment = {
+        systemPackages = with pkgs; [
+            vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default. 
+            wget
+            rsync
+            home-manager
+            fastfetch 
+            sddm-astronaut
+            #libsForQt5.qt5.qtgraphicaleffects
+            uv
+            rpi-imager
+            zstd
+            #(catppuccin-sddm.override {
+            #    flavor = "frappe";
+            #    font = "Fira Sans";
+            #    fontSize = "15";
+            #})
+        ];
+        sessionVariables = {
+            LIBVA_DRIVER_NAME = "nvidia";
+            GBM_BACKEND = "nvidia-drm";
+            __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+            # Required for 50-series/Wayland cursor visibility
+            WLR_NO_HARDWARE_CURSORS = "1";
+            # Helps SDDM and Hyprland find the correct DRM seat
+            XDG_SESSION_TYPE = "wayland";
+        };
+    };
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
