@@ -6,9 +6,10 @@
 
 {
     imports = [
-        /etc/nixos/hardware-configuration.nix
+        /mnt/etc/nixos/hardware-configuration.nix
         ./localModules/services.nix
         ./localModules/mounts.nix
+        ./localModules/nvidia.nix
         ../../modules/common/storageOpt.nix
     ];
 
@@ -111,7 +112,6 @@
         rsync
         home-manager
         fastfetch 
-        ranger
         sddm-astronaut
         #libsForQt5.qt5.qtgraphicaleffects
         uv

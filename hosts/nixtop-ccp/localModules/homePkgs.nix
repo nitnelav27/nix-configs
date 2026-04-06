@@ -10,7 +10,7 @@
         emacs
         enchant
         electron
-        feishin
+        #feishin
         firefox
         gcc
         gnumake
@@ -51,7 +51,7 @@
         supersonic-wayland
         swaybg
         texlab
-        teams-for-linux 
+        #teams-for-linux 
         thunderbird
         via
         vscode

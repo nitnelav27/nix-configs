@@ -20,12 +20,6 @@
                     TERM = "xterm-256color";
                 };
             };
-            "proxmox" = {
-                hostname = "10.27.81.2";
-                port = 1186;
-                user = "root";
-                identityFile = "~/.ssh/id_ed25519";
-            };
             "macbook" = {
                 hostname = "10.27.115.81";
                 port = 1186;
@@ -38,19 +32,8 @@
                 user = "vvh";
                 identityFile = "~/.ssh/id_ed25519";
             };
-            "rpi-alx" = {
-                hostname = "10.27.81.3";
-                port = 1186;
-                user = "vvh";
-                identityFile = "~/.ssh/id_ed25519";
-            }; 
             "github.com" = {
                 port = 22;
-                addKeysToAgent = "yes";
-                identityFile = "~/.ssh/id_ed25519";
-            };
-            "git.gandalf.studio" = {
-                port  = 22;
                 addKeysToAgent = "yes";
                 identityFile = "~/.ssh/id_ed25519";
             };
