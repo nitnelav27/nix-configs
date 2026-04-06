@@ -6,7 +6,6 @@
             "firefox"
             "kitty"
             "slack"
-            "microsoft-office"
             "calibre"
             "zoom"
             "adobe-acrobat-reader"
@@ -19,6 +18,7 @@
             "ghostty"
 #"spotify"
             "rar"
+            "skim"
         ];
         brews = [
             "imagemagick"

@@ -1,5 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
-
+let
+zshDotDir = if pkgs.stdenv.isDarwin
+            then ".config/zsh"
+            else "${config.home.homeDirectory}/.config/zsh";
+in 
 {
     ## zsh as shell
     programs.zsh = {
@@ -7,12 +11,14 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        dotDir = "${config.home.homeDirectory}/.config/zsh";
-        history.size = 1000;
-        history.save = 10000;
-        history.path = "${config.home.homeDirectory}/.local/share/zsh/history";
-        history.ignorePatterns = [ "rm *" "pkill *" "l *" "cp *" ];
-        history.ignoreDups = true;
+        dotDir = zshDotDir;
+        history = {
+            size = 1000;
+            save = 10000;
+            path = "${config.home.homeDirectory}/.local/share/zsh/history";
+            ignorePatterns = [ "rm *" "pkill *" "l *" "cp *" ];
+            ignoreDups = true;
+        };
         shellAliases = {
             l = "eza -F --color=always --icons=always --group-directories-first -hg";
         };

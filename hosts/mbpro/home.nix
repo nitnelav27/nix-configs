@@ -6,11 +6,11 @@
 
     imports = [
         ../../modules/common/terminals.nix
-        ./localModules/myshell.nix
+        ../../modules/common/myshell.nix
         ../../modules/common/homeBase.nix
         ./localModules/homePkgs.nix
         ./localModules/git.nix
-        ./localModules/neovim.nix
+        ../../modules/common/neovim.nix
         ../../modules/utils/vscode.nix
         ../../modules/common/yazi.nix
         ../../modules/media/mpv.nix
@@ -25,10 +25,11 @@
         XDG_CONFIG_HOME = "$HOME/.config";
         DOOMDIR = "$HOME/.config/doom";
         IPYTHONDIR = "$HOME/.config/ipython";
+        PYRIGHT_PYTHON_FORCE_VERSION = "3.14";
         JUPYTER_CONFIG_DIR = "$HOME/.config/jupyter";
         EDITOR = "nvim";
         VISUAL = "nvim";
-        TERMINAL = "kitty";  # Confirmed macOS compatible
+        TERMINAL = "ghostty";  # Confirmed macOS compatible
         VIDEO = "mpv";
         OPENER = "open";     # macOS native opener
         PAGER = "less";

@@ -8,15 +8,17 @@
         # Cross-platform packages
         ripgrep
         cmake
-        emacs
+        #emacs
         gcc
         gnumake
         gnuplot
         jq
+        alejandra ### nix formatter
         texlab
-        uv
+        windsurf
+#uv
 	    wget
         zathura
-        python3
+#python3
     ]; 
 }

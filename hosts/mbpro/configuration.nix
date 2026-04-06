@@ -21,10 +21,19 @@
         allowUnfree = true;
         allowUnsupportedSystem = true;
     };
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        ruby_4_0 = prev.ruby_3_3; # Maps the non-existent ruby_4_0 to 3.3
+      })
+    ];
+
     environment.systemPackages = with pkgs; [
         mkalias
         vim
-	    home-manager
+        uv
+        python314
+	      home-manager
     ]; 
 
     ## Environment variables to help with darwin compilation

@@ -1,4 +1,7 @@
 { config, pkgs, self, lib, inputs, ... }: 
+let
+nixFormatter = if pkgs.stdenv.isDarwin then "alejandra" else "nixfmt";
+in
 {
     programs.nvf = {
         enable = true;
@@ -7,10 +10,14 @@
             vim = {
                 globals = {
                     mapleader = " ";
+                    vimtex_view_method = if pkgs.stdenv.isDarwin then "skim" else "zathura";
+                    vimtex_compiler_method = "latexmk";
+                    tex_conceal = "abdmg";
+                    vimtex_quickfix_open_on_warning = 0;
                 };
                 clipboard = {
                     enable = true;
-                    providers.wl-copy.enable = true;
+                    providers.wl-copy.enable = pkgs.stdenv.isLinux;
                     registers = "unnamedplus";
                 };
                 theme = {
@@ -25,11 +32,11 @@
                     };
                     vimtex = {
                         package = vimtex;
-                        setup = ''
-                            -- VimTeX configuration in Vimscript (it's a Vimscript plugin)
-                            vim.g.vimtex_view_method = 'zathura'
-                            vim.g.vimtex_compiler_method = 'latexmk'
-                        '';
+#setup = ''
+#                            -- VimTeX configuration in Vimscript (it's a Vimscript plugin)
+#                            vim.g.vimtex_view_method = 'zathura'
+#                            vim.g.vimtex_compiler_method = 'latexmk'
+#                        '';
                     };
                     telescope-bibtex-nvim = {
                         package = (pkgs.vimUtils.buildVimPlugin {
@@ -53,7 +60,6 @@
                     "nvim-colorizer-lua"
                     "blink-cmp"
                     "catppuccin"
-                    "conform-nvim"
                     "dressing-nvim"
                     "flash-nvim"
                     "friendly-snippets"
@@ -63,14 +69,12 @@
                     "mini-pairs"
                     "nui-nvim"
                     "nvim-lint"
-                    "nvim-lspconfig"
                     "nvim-ts-autotag"
                     "plenary-nvim"
                     "snacks-nvim"
                     "todo-comments-nvim"
                     "which-key-nvim"
-                    pkgs.vimPlugins.vimtex
-                    pkgs.vimPlugins.cmp-vimtex
+#pkgs.vimPlugins.vimtex
                     pkgs.vimPlugins.nvim-notify
                     pkgs.vimPlugins.nvim-treesitter
                     pkgs.vimPlugins.nvim-dap-python
@@ -79,68 +83,54 @@
                     pkgs.vimPlugins.trouble-nvim
                 ];
                 luaConfigPost = ''
-                    -- 1. Register the LaTeX group for which-key (Matches Doom Emacs style)
-                    local wk = require("which-key")
-                    wk.add({
-                        { "<leader>l", group = "latex" },
-                    })
+                    -- 1. Register the LaTeX group for which-key
+  local wk = require("which-key")
+  wk.add({
+    { "<leader>l", group = "latex" },
+  })
 
-                    -- 2. Force VimTeX mappings and ensure they load for .tex files
-                    vim.api.nvim_create_autocmd("FileType", {
-                        pattern = "tex",
-                        callback = function()
-                        local opts = { buffer = true, silent = true }
-        
-                    -- Start/Stop Compilation
-                    vim.keymap.set('n', '<leader>ll', '<cmd>VimtexCompile<cr>', 
-                    { buffer = true, desc = "Compile/Stop LaTeX" })
-            
-                    -- View PDF in Zathura (Matches config.org preference)
-                    vim.keymap.set('n', '<leader>lv', '<cmd>VimtexView<cr>', 
-                    { buffer = true, desc = "View PDF (Zathura)" })
-            
-                    -- Open VimTeX Info (useful for troubleshooting)
-                    vim.keymap.set('n', '<leader>li', '<cmd>VimtexInfo<cr>', 
-                    { buffer = true, desc = "VimTeX Info" })
-                    end
-                    })
-                    -- Configure Python DAP
-                    require('dap-python').setup('python')
-                    -- VIM options
-                    vim.g.vimtex_view_method = 'zathura'
-                    vim.g.tex_conceal = 'abdmg'
-                    vim.g.vimtex_compiler_latexmk = {
-                        executable = 'latexmk',
-                        options = {
-                            '-pdf',
-                            '-verbose',
-                            '-file-line-error',
-                            '-synctex=1',
-                            '-interaction=nonstopmode',
-                        }
-                    }
-                    vim.keymap.set('v', '<leader>doi', function()
-                        -- Yank the visually selected DOI
-                        vim.cmd('normal! "dy')
-                        local doi = vim.fn.getreg('d')
-                        doi = doi:gsub("^%s*(.-)%s*$", "%1") -- trim whitespace
-                        
-                        if doi ~= "" then
-                            -- Use curl to fetch the BibTeX entry from doi.org
-                            local cmd = string.format("curl -sLH 'Accept: application/x-bibtex' https://doi.org/%s", doi)
-                            local bibtex_entry = vim.fn.systemlist(cmd)
-                            
-                            if vim.v.shell_error == 0 then
-                                -- Paste the fetched entry below the current line
-                                vim.api.nvim_put(bibtex_entry, 'l', true, true)
-                                print("DOI fetched successfully!")
-                            else
-                                print("Failed to fetch DOI.")
-                            end
-                        end
-                    end, { desc = "Fetch BibTeX from DOI" })
-                '';
-                pluginRC = {
+  -- 2. Force VimTeX mappings and ensure they load for .tex files
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "tex",
+    callback = function()
+      local opts = { buffer = true, silent = true }
+      vim.keymap.set('n', '<leader>ll', '<cmd>VimtexCompile<cr>', { buffer = true, desc = "Compile/Stop LaTeX" })
+      vim.keymap.set('n', '<leader>lv', '<cmd>VimtexView<cr>', { buffer = true, desc = "View PDF" })
+      vim.keymap.set('n', '<leader>li', '<cmd>VimtexInfo<cr>', { buffer = true, desc = "VimTeX Info" })
+    end
+  })
+
+  -- 3. Configure Python DAP
+  require('dap-python').setup('python')
+
+  -- 4. DOI Fetching Logic
+  vim.keymap.set('v', '<leader>doi', function()
+    vim.cmd('normal! "dy')
+    local doi = vim.fn.getreg('d')
+    doi = doi:gsub("^%s*(.-)%s*$", "%1")
+    if doi ~= "" then
+      local cmd = string.format("curl -sLH 'Accept: application/x-bibtex' https://doi.org/%s", doi)
+      local bibtex_entry = vim.fn.systemlist(cmd)
+      if vim.v.shell_error == 0 then
+        vim.api.nvim_put(bibtex_entry, 'l', true, true)
+        print("DOI fetched successfully!")
+      else
+        print("Failed to fetch DOI.")
+      end
+    end
+  end, { desc = "Fetch BibTeX from DOI" })
+
+  -- 5. Nix Indentation
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "nix",
+    callback = function()
+      vim.opt_local.tabstop = 2
+      vim.opt_local.softtabstop = 2
+      vim.opt_local.shiftwidth = 2
+      vim.opt_local.expandtab = true
+    end,
+  })
+'';                pluginRC = {
                     nvim-notify = ''
                         require("notify").setup({
                         background_colour = "#000000",
@@ -219,6 +209,7 @@
                 autocomplete.nvim-cmp = {
                     enable = true;
                     sources = lib.mkForce {
+		    	"vimtex" = "[VimTeX]";
                         "nvim_lsp" = "[LSP]";
                         "path" = "[Path]";
                         "buffer" = "[Buffer]";
@@ -316,8 +307,14 @@
                     };
                     nix = {
                         enable = true;
-                        format.enable = true;
-                        lsp.enable = true;
+                        format = {
+                            enable = true;
+                            type = [ nixFormatter ];
+                        };
+                        lsp = {
+                            enable = true;
+                            servers = [ "nil" ];
+                        };
                     };
                     python = {
                         enable = true;
@@ -334,7 +331,9 @@
                     markdown = {
                         enable = true;
                         format.enable = true;
-                        lsp.enable = true;
+                        lsp = {
+				enable = !pkgs.stdenv.isDarwin;
+			};
                         extensions = {
                             markview-nvim.enable = true;
                             render-markdown-nvim.enable = true;
@@ -356,3 +355,4 @@
         };
     };
 }
+
