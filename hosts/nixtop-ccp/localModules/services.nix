@@ -9,10 +9,25 @@
         
     # Use GRUB.
     boot = {
+        initrd = {
+            kernelModules = [
+                "nvidia"
+                "nvidia_modeset"
+                "nvidia_uvm"
+                "nvidia_drm"
+            ];
+        };
         ## uncomment below to build a sd-image for raspberry pi
         #binfmt.emulatedSystems = [ "aarch64-linux" ];
         supportedFilesystems = [ "nfs" ];
 	    kernelPackages = pkgs.linuxPackages_latest;
+        kernelParams = [
+            "nvidia-drm.modeset=1"
+            "nvidia-drm.fbdev=1"
+            # This tells the kernel to ignore the simple boot splash and 
+            # wait for the real driver
+            "video=efifb:off"
+        ];
         loader = {
             systemd-boot.enable = false;
             efi = {
@@ -109,5 +124,7 @@
             "1.pool.ntp.org"
         ];
     };
+
+    systemd.services.display-manager.after = [ "nvidia-drm-output.target" ];
 
 }

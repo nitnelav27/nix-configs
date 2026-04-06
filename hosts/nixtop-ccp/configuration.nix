@@ -6,7 +6,7 @@
 
 {
     imports = [
-        /mnt/etc/nixos/hardware-configuration.nix
+        /etc/nixos/hardware-configuration.nix
         ./localModules/services.nix
         ./localModules/mounts.nix
         ./localModules/nvidia.nix
@@ -94,15 +94,15 @@
     };
 
     ## Hardware for video
-    #hardware.graphics = {
-    #    enable = true;
-    #    enable32Bit = true;
+    hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
     #    extraPackages = with pkgs; [
     #        intel-media-driver
     #        libva-vdpau-driver
     #        libvdpau-va-gl
     #    ];
-    #};
+    };
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget

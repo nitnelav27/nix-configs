@@ -110,8 +110,13 @@ in
     #  /etc/profiles/per-user/vsvh/etc/profile.d/hm-session-vars.sh
     #
     home.sessionVariables = {
-        LIBVA_DRIVER_NAME = "iHD";
+        WLR_NO_HARDWARE_CURSORS = "1";
+        # Hint electron apps to use wayland
         NIXOS_OZONE_WL = "1";
+        # Force nvidia to use wayland
+        LIBVA_DRIVER_NAME = "nvidia";
+        GBM_BACKEND = "nvidia-drm";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
         XDG_DATA_HOME = "$HOME/.local/share";
         XDG_CACHE_HOME = "$HOME/.cache";
         XDG_CONFIG_HOME = "$HOME/.config";
