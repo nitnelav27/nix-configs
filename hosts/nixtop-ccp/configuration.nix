@@ -75,6 +75,8 @@
                 shell = pkgs.zsh;
                 extraGroups = [
                     "wheel"
+                    "video"
+                    "render"
                     "networkmanager"
                 ];
                 openssh.authorizedKeys.keys = [
@@ -140,9 +142,60 @@
             WLR_NO_HARDWARE_CURSORS = "1";
             # Helps SDDM and Hyprland find the correct DRM seat
             XDG_SESSION_TYPE = "wayland";
+            MUTTER_DEBUG_FORCE_KMS_MODE = "simple"; # Helps GDM draw on Nvidia
         };
     };
 
+    
+  systemd = {
+    services = {
+      display-manager = {
+        after = [
+          "graphical-desktop.target"
+          "nvidia-drm-output.target" 
+          "network-online.target" 
+        ];
+        wants = [
+          "nvidia-drm-output.target"
+        ];
+        requires = [
+          "nvidia-drm-output.target"
+        ];
+      };
+    };
+    user = {
+      extraConfig = ''
+        DefaultEnvironment="PATH=/usr/bin:/bin"
+        DefaultEnvironment="LIBVA_DRIVER_NAME=nvidia"
+        DefaultEnvironment="GBM_BACKEND=nvidia-drm"
+        DefaultEnvironment="__GLX_VENDOR_LIBRARY_NAME=nvidia"
+      '';
+    };
+  };
+
+  services.greetd = {
+        enable = true;
+        settings = {
+            default_session = {
+                # This drops you into a text-based login prompt.
+                # Once you log in, it automatically runs your UWSM Hyprland command.
+                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --asterisks --cmd 'uwsm start hyprland-uwsm.desktop'";
+                user = "greeter";
+            };
+        };
+    };
+
+    # Optional but recommended: This prevents boot messages from mixing 
+    # with the login prompt on the screen.
+    systemd.services.greetd.serviceConfig = {
+        Type = "idle";
+        StandardInput = "tty";
+        StandardOutput = "tty";
+        StandardError = "journal"; 
+        TTYReset = true;
+        TTYVHangup = true;
+        TTYVTDisallocate = true;
+    }; 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     # programs.mtr.enable = true;

@@ -86,26 +86,7 @@
                 };
             };
         };
-    };
-
-    services.displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
-        # Force SDDM to use the wayland greeting even if it defaults to X11
-        settings = {
-          General = {
-            DisplayServer = "wayland";
-            GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
-          };
-        };
-        theme = "sddm-astronaut-theme";
-        package = pkgs.kdePackages.sddm;
-        extraPackages = [
-            pkgs.sddm-astronaut
-            pkgs.kdePackages.qtmultimedia
-            pkgs.kdePackages.qtwayland
-        ];
-    };
+    }; 
     
     programs.hyprland = {
         enable = true;
@@ -124,21 +105,16 @@
         batteryIcons = "solaar";
     };
 
-    services.timesyncd = {
-        enable  = true;
-        servers = [
-            "0.pool.ntp.org"
-            "1.pool.ntp.org"
-        ];
-    };
+    # 1. Disable the flapping service
+  services.timesyncd.enable = false;
 
-    systemd.services.display-manager.after = [ "nvidia-drm-output.target" ];
-
-    systemd.user.extraConfig = ''
-        DefaultEnvironment="PATH=/usr/bin:/bin"
-        DefaultEnvironment="LIBVA_DRIVER_NAME=nvidia"
-        DefaultEnvironment="GBM_BACKEND=nvidia-drm"
-        DefaultEnvironment="__GLX_VENDOR_LIBRARY_NAME=nvidia"
-    '';
-
+  # 2. Enable Chrony for more robust syncing
+  services.chrony.enable = true;
+  
+  # 3. Use the South America pool for better latency
+  networking.timeServers = lib.mkForce [
+    "0.south-america.pool.ntp.org"
+    "1.south-america.pool.ntp.org"
+    "time.google.com"
+  ];
 }
