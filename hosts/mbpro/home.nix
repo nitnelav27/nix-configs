@@ -14,6 +14,7 @@
         ../../modules/utils/vscode.nix
         ../../modules/common/yazi.nix
         ../../modules/media/mpv.nix
+        ./localModules/ssh.nix
     ];
 
 
