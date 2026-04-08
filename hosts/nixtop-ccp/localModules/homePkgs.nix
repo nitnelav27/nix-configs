@@ -47,6 +47,7 @@
         scrot
         slack
         slurp
+        spotify
         sqlite
         supersonic-wayland
         swaybg
