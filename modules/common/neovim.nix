@@ -83,54 +83,81 @@ in
                     pkgs.vimPlugins.trouble-nvim
                 ];
                 luaConfigPost = ''
-                    -- 1. Register the LaTeX group for which-key
-  local wk = require("which-key")
-  wk.add({
-    { "<leader>l", group = "latex" },
-  })
+                    -- 1. Register groups for which-key
+                        local wk = require("which-key")
+                        wk.add({
+                            { "<leader>l", group = "latex" },
+                            { "<leader>f", group = "find/telescope" },
+                        })
 
-  -- 2. Force VimTeX mappings and ensure they load for .tex files
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "tex",
-    callback = function()
-      local opts = { buffer = true, silent = true }
-      vim.keymap.set('n', '<leader>ll', '<cmd>VimtexCompile<cr>', { buffer = true, desc = "Compile/Stop LaTeX" })
-      vim.keymap.set('n', '<leader>lv', '<cmd>VimtexView<cr>', { buffer = true, desc = "View PDF" })
-      vim.keymap.set('n', '<leader>li', '<cmd>VimtexInfo<cr>', { buffer = true, desc = "VimTeX Info" })
-    end
-  })
+                        -- 2. Force VimTeX mappings and ensure they load for .tex files
+                        vim.api.nvim_create_autocmd("FileType", {
+                            pattern = "tex",
+                            callback = function()
+                                local opts = { buffer = true, silent = true }
+                                vim.keymap.set('n', '<leader>ll', '<cmd>VimtexCompile<cr>', { buffer = true, desc = "Compile/Stop LaTeX" })
+                                vim.keymap.set('n', '<leader>lv', '<cmd>VimtexView<cr>', { buffer = true, desc = "View PDF" })
+                                vim.keymap.set('n', '<leader>li', '<cmd>VimtexInfo<cr>', { buffer = true, desc = "VimTeX Info" })
+                                -- New: Clean auxiliary LaTeX files
+                                vim.keymap.set('n', '<leader>lc', '<cmd>VimtexClean<cr>', { buffer = true, desc = "Clean Aux Files" })
+                            end
+                        })
 
-  -- 3. Configure Python DAP
-  require('dap-python').setup('python')
+                        -- 3. Configure Python DAP
+                        require('dap-python').setup('python')
 
-  -- 4. DOI Fetching Logic
-  vim.keymap.set('v', '<leader>doi', function()
-    vim.cmd('normal! "dy')
-    local doi = vim.fn.getreg('d')
-    doi = doi:gsub("^%s*(.-)%s*$", "%1")
-    if doi ~= "" then
-      local cmd = string.format("curl -sLH 'Accept: application/x-bibtex' https://doi.org/%s", doi)
-      local bibtex_entry = vim.fn.systemlist(cmd)
-      if vim.v.shell_error == 0 then
-        vim.api.nvim_put(bibtex_entry, 'l', true, true)
-        print("DOI fetched successfully!")
-      else
-        print("Failed to fetch DOI.")
-      end
-    end
-  end, { desc = "Fetch BibTeX from DOI" })
+                        -- 4. DOI Fetching Logic
+                        -- Existing Visual Mode: Fetches DOI from highlighted text
+                        vim.keymap.set('v', '<leader>doi', function()
+                            vim.cmd('normal! "dy')
+                            local doi = vim.fn.getreg('d')
+                            doi = doi:gsub("^%s*(.-)%s*$", "%1")
+                            if doi ~= "" then
+                                local cmd = string.format("curl -sLH 'Accept: application/x-bibtex' https://doi.org/%s", doi)
+                                local bibtex_entry = vim.fn.systemlist(cmd)
+                                if vim.v.shell_error == 0 then
+                                    vim.api.nvim_put(bibtex_entry, 'l', true, true)
+                                    print("DOI fetched successfully!")
+                                else
+                                    print("Failed to fetch DOI.")
+                                end
+                            end
+                        end, { desc = "Fetch BibTeX from DOI (Visual)" })
 
-  -- 5. Nix Indentation
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "nix",
-    callback = function()
-      vim.opt_local.tabstop = 2
-      vim.opt_local.softtabstop = 2
-      vim.opt_local.shiftwidth = 2
-      vim.opt_local.expandtab = true
-    end,
-  })
-'';                pluginRC = {
+                        -- New Normal Mode: Prompts for DOI input
+                        vim.keymap.set('n', '<leader>doi', function()
+                            local doi = vim.fn.input('Enter DOI: ')
+                            if doi ~= "" then
+                                local cmd = string.format("curl -sLH 'Accept: application/x-bibtex' https://doi.org/%s", doi)
+                                local bibtex_entry = vim.fn.systemlist(cmd)
+                                if vim.v.shell_error == 0 then
+                                    vim.api.nvim_put(bibtex_entry, 'l', true, true)
+                                    print("DOI fetched successfully!")
+                                else
+                                    print("Failed to fetch DOI.")
+                                end
+                            end
+                        end, { desc = "Fetch BibTeX from DOI (Prompt)" })
+
+                        -- 5. Nix Indentation
+                        vim.api.nvim_create_autocmd("FileType", {
+                            pattern = "nix",
+                            callback = function()
+                                vim.opt_local.tabstop = 2
+                                vim.opt_local.softtabstop = 2
+                                vim.opt_local.shiftwidth = 2
+                                vim.opt_local.expandtab = true
+                            end,
+                        })
+
+                        -- 6. New Telescope Keymaps
+                        local builtin = require('telescope.builtin')
+                        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+                        vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+                        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+                        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+                    '';
+        pluginRC = {
                     nvim-notify = ''
                         require("notify").setup({
                         background_colour = "#000000",
