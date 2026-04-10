@@ -25,37 +25,44 @@
     ## BIND MOUNTS: calibre 
     fileSystems."/export/calibre" = {
                 device = "/storage/nas/calibre";
+                fsType = "none";
                 options = [ "bind" ];
         };
   ## BIND MOUNTS: data
     fileSystems."/export/data" = {
                 device = "/storage/nas/data";
+                fsType = "none";
                 options = [ "bind" ];
         };
   ## BIND MOUNTS: dump 
     fileSystems."/export/dump" = {
                 device = "/storage/nas/dump";
+                fsType = "none";
                 options = [ "bind" ];
         };
   ## BIND MOUNTS: migration
     fileSystems."/export/migration" = {
                 device = "/storage/nas/migration";
+                fsType = "none";
                 options = [ "bind" ];
         };
   ## BIND MOUNTS: docs
     fileSystems."/export/docs" = {
-               device = "/storage/nas/docs";
-               options = [ "bind" ];
+                device = "/storage/nas/docs";
+                fsType = "none";
+                options = [ "bind" ];
        };
   ## BIND MOUNTS: results
     fileSystems."/export/results" = {
-               device = "/storage/nas/results";
-               options = [ "bind" ];
+                device = "/storage/nas/results";
+                fsType = "none";
+                options = [ "bind" ];
        };
   ## BIND MOUNTS: decreto
     fileSystems."/export/.decreto" = {
-               device = "/storage/.decreto";
-               options = [ "bind" ];
+                device = "/storage/.decreto";
+                fsType = "none";
+                options = [ "bind" ];
        };
 
 }
