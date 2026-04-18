@@ -313,6 +313,8 @@ in
                     shiftwidth = 4;
                     breakindent = true;
                     conceallevel = 2;
+                    encoding = "utf-8";
+                    fileencoding = "utf-8";
                 };
                 lsp = {
                     enable = true;

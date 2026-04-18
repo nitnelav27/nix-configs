@@ -12,10 +12,10 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         hyprland.url = "github:hyprwm/Hyprland";
-        mangowc = {
-            url = "github:DreamMaoMao/mangowc";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+    #mangowc = {
+    #       url = "github:DreamMaoMao/mangowc";
+    #       inputs.nixpkgs.follows = "nixpkgs";
+    #   };
         solaar = {
             #url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
             #url = "https://flakehub.com/f/Svenum/Solaar-Flake/0.1.3.tar.gz"; # uncomment line for solaar version 1.1.15
@@ -24,7 +24,7 @@
         };
     };
 
-    outputs = inputs@{ nixpkgs, home-manager, hyprland, mangowc, nvf, solaar, self, ... }:
+    outputs = inputs@{ nixpkgs, home-manager, hyprland, nvf, solaar, self, ... }:
         let
             mkHost = hostname: system: mainUser: nixpkgs.lib.nixosSystem {
                 inherit system;
