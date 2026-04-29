@@ -117,4 +117,26 @@
     "1.south-america.pool.ntp.org"
     "time.google.com"
   ];
+
+  ## This is for using English and Spanish keyboard layouts
+  console = {
+    useXkbConfig = true; # use xkb.options in tty.
+  };
+
+  services.xserver.xkb = {
+    layout = "us,es";
+    variant = ","; # Leave blank for default variants, or use "intl" for US if you want dead keys there too
+    options = "grp:caps_toggle"; # Toggle between US and ES using caps key
+  };
+
+  ## Ollama
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+    loadModels = [
+      "llama3.1:8b"
+      "deepseek-r1:8b"
+    ];
+  };
+  services.open-webui.enable = true;
 }

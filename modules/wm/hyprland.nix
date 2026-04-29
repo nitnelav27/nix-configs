@@ -44,6 +44,7 @@ in
             # Autostart necessary processes (like notifications daemons, status bars, etc.)
             # Or execute your favorite apps at launch like this:
             exec-once = [
+                "fcitx5 -d -r"
                 "${randomWall}/bin/random-wall"
                 #"$HOME/.config/hypr/scripts/wallpaper-hyprland"
                 "$HOME/.config/hypr/scripts/xdg_bar"
@@ -148,6 +149,8 @@ in
             # https://wiki.hyprland.org/Configuring/Variables/#input
             input = {
                 kb_layout = "us,es";
+                kb_variant = "";
+                kb_model = "pc105";
                 kb_options = "grp:caps_toggle";
                 follow_mouse = 1;
                 sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
