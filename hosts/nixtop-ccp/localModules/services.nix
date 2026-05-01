@@ -136,6 +136,11 @@
     loadModels = [
       "llama3.1:8b"
       "deepseek-r1:8b"
+      "deepseek-r1:14b"
+      "gemma3:12b"
+      "qwen3:14b"
+      "llava:13b"
+      "llama3.2-vision:11b"
     ];
   };
   services.open-webui.enable = true;

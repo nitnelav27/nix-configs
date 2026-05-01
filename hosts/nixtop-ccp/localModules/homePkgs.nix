@@ -64,5 +64,6 @@
         thunar
         zathura
         zoom-us
+    #google-chrome
     ];
 }
