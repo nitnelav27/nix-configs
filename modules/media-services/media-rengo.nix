@@ -6,7 +6,7 @@
         ./radarr.nix
         ./lidarr.nix
         ./sonarr.nix
-        ./deluge.nix
+    #./deluge.nix
         ./prowlarr.nix
         ./navidrome.nix
         ./qbittorrent.nix
