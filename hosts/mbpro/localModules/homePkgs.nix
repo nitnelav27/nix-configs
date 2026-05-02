@@ -18,7 +18,7 @@
         windsurf
 #uv
 	    wget
-        zathura
+    #zathura
 #python3
     ]; 
 }
