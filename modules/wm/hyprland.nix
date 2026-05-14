@@ -30,8 +30,9 @@ in
             monitor = [
                 #"DP-3, 3440x1440@99.98, 0x0, 1"
                 #"DP-4, 3840x2160@60.00, 0x0, 1.2"
-                "HDMI-A-1, 3440x1440@99.98, 0x0, 1"
-                "DP-1, 2560x1440@180.00, 3440x-1440, 1"
+                #"HDMI-A-1, 3440x1440@99.98, 0x0, 1"
+                "DP-1, 2560x1440@180.00, 0x0, 1"
+                "DP-2, 2560x1440@180.00, 2560x0, 1"
             ];
             ## Local variables
             "$terminal" = "ghostty";
@@ -244,16 +245,16 @@ in
             #
             ##### Workspace rules
             workspace = [
-                "1,default:true,monitor:HDMI-A-1"
-                "2,monitor:HDMI-A-1"
-                "3,monitor:HDMI-A-1"
-                "4,monitor:HDMI-A-1"
-                "5,monitor:HDMI-A-1"
-                "6,monitor:DP-1"
-                "7,monitor:DP-1"
-                "8,monitor:DP-1"
-                "9,monitor:DP-1"
-                "10,monitor:DP-1"
+                "1,default:true,monitor:DP-1"
+                "2,monitor:DP-1"
+                "3,monitor:DP-1"
+                "4,monitor:DP-1"
+                "5,monitor:DP-1"
+                "6,monitor:DP-2"
+                "7,monitor:DP-2"
+                "8,monitor:DP-2"
+                "9,monitor:DP-2"
+                "10,monitor:DP-2"
             ];
             ###### Window rules
             windowrule = [
