@@ -155,6 +155,7 @@
             #})
         ];
         sessionVariables = {
+            NIXOS_OZONE_WL = "1";
             LIBVA_DRIVER_NAME = "nvidia";
             GBM_BACKEND = "nvidia-drm";
             __GLX_VENDOR_LIBRARY_NAME = "nvidia";
@@ -172,15 +173,14 @@
       display-manager = {
         after = [
           "graphical-desktop.target"
-          "nvidia-drm-output.target" 
           "network-online.target" 
         ];
-        wants = [
-          "nvidia-drm-output.target"
-        ];
-        requires = [
-          "nvidia-drm-output.target"
-        ];
+        # wants = [
+        #   "nvidia-drm-output.target"
+        # ];
+        # requires = [
+        #   "nvidia-drm-output.target"
+        # ];
       };
     };
     user = {

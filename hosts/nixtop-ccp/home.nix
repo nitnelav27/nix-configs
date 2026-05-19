@@ -31,8 +31,8 @@ in
         ../../modules/common/terminals.nix 
         ../../modules/common/myshell.nix
         ./localModules/gnomeHomeConfig.nix
-    #../../modules/wm/hyprland.nix
-    #../../modules/wm/hyprlock.nix
+        ../../modules/wm/hyprland.nix
+        ../../modules/wm/hyprlock.nix
         ../../modules/common/homeBase.nix
         ./localModules/homePkgs.nix
         ./localModules/homeServices.nix
