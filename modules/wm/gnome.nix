@@ -1,7 +1,17 @@
 { config, lib, pkgs, inputs, ... }:
 {
   services = {
-    displayManager.gdm.enble = true;
+    xserver = {
+      enable = true;
+      videoDrivers = [
+        "nvidia"
+        "amdgpu"
+      ];
+    };
+    displayManager = {
+      gdm.enable = true;
+      defaultSession = "gnome";
+    };
     desktopManager.gnome.enable = true;
     ## Disable all of gnome's bloat
     gnome = {
