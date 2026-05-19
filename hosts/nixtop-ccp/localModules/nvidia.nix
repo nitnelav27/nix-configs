@@ -4,6 +4,7 @@
     # Enable OpenGL
     hardware.graphics = {
         enable = true;
+        enable32Bit = true;
     };
 
     # Load nvidia driver for Xorg and Wayland
@@ -14,7 +15,7 @@
         modesetting.enable = true;
 
         # Nvidia power management. Experimental, and can cause sleep/suspend issues.
-        powerManagement.enable = true;
+        powerManagement.enable = false;
         # Fine-grained power management. Turns off GPU when not in use.
         # Experimental and only works on modern Nvidia GPUs (Turing or newer).
         powerManagement.finegrained = false;
