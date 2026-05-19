@@ -9,25 +9,34 @@
         
     # Use GRUB.
     boot = {
+        kernelPackages = pkgs.linuxPackages_latest;
         initrd = {
             kernelModules = [
                 "nvidia"
                 "nvidia_modeset"
                 "nvidia_uvm"
                 "nvidia_drm"
+                "it87"
             ];
         };
         ## uncomment below to build a sd-image for raspberry pi
         #binfmt.emulatedSystems = [ "aarch64-linux" ];
         supportedFilesystems = [ "nfs" ];
-	    kernelPackages = pkgs.linuxPackages_latest;
+
         kernelParams = [
             "nvidia-drm.modeset=1"
             "nvidia-drm.fbdev=1"
             # This tells the kernel to ignore the simple boot splash and 
             # wait for the real driver
             "video=efifb:off"
+            "acpi_enforce_resources=lax"
         ];
+        extraModulePackages = [
+            config.boot.kernelPackages.it87
+        ];
+        extraModprobeConfig = ''
+          options it87 force_id=0x8696 ignore_resource_conflict=1
+        '';
         loader = {
             systemd-boot.enable = false;
             efi = {
@@ -88,17 +97,17 @@
         };
     }; 
     
-    programs.hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-        withUWSM = true;
-        xwayland.enable = true;
-    };
+    # programs.hyprland = {
+    #     enable = true;
+    #     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    #     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    #     withUWSM = true;
+    #     xwayland.enable = true;
+    # };
 
-    services.hypridle = {
-        enable = true;
-    };
+    # services.hypridle = {
+    #     enable = true;
+    # };
 
     services.solaar = {
         enable = true;
@@ -123,25 +132,34 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
-  services.xserver.xkb = {
-    layout = "us,es";
-    variant = ","; # Leave blank for default variants, or use "intl" for US if you want dead keys there too
-    options = "grp:caps_toggle"; # Toggle between US and ES using caps key
+  # services.xserver.xkb = {
+  #   layout = "us,es";
+  #   variant = ","; # Leave blank for default variants, or use "intl" for US if you want dead keys there too
+  #   options = "grp:caps_toggle"; # Toggle between US and ES using caps key
+  # };
+
+  ## Control rgb lighting
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+  };
+  programs.coolercontrol = {
+    enable = true;
   };
 
   ## Ollama
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-    loadModels = [
-      "llama3.1:8b"
-      "deepseek-r1:8b"
-      "deepseek-r1:14b"
-      "gemma3:12b"
-      "qwen3:14b"
-      "llava:13b"
-      "llama3.2-vision:11b"
-    ];
-  };
-  services.open-webui.enable = true;
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-cuda;
+  #   loadModels = [
+  #     "llama3.1:8b"
+  #     "deepseek-r1:8b"
+  #     "deepseek-r1:14b"
+  #     "gemma3:12b"
+  #     "qwen3:14b"
+  #     "llava:13b"
+  #     "llama3.2-vision:11b"
+  #   ];
+  # };
+  # services.open-webui.enable = true;
 }

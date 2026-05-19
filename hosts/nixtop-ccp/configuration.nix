@@ -10,6 +10,7 @@
         ./localModules/services.nix
         ./localModules/mounts.nix
         ./localModules/nvidia.nix
+        ../../modules/wm/gnome.nix
         ../../modules/common/storageOpt.nix
     ];
 
@@ -120,6 +121,8 @@
         ];
     };
 
+    programs.hyprland.enable = true;
+
     ## Hardware for video
     hardware.graphics = {
         enable = true;
@@ -140,7 +143,7 @@
             rsync
             home-manager
             fastfetch 
-            sddm-astronaut
+            # sddm-astronaut
             #libsForQt5.qt5.qtgraphicaleffects
             uv
             rpi-imager
@@ -190,29 +193,29 @@
     };
   };
 
-  services.greetd = {
-        enable = true;
-        settings = {
-            default_session = {
-                # This drops you into a text-based login prompt.
-                # Once you log in, it automatically runs your UWSM Hyprland command.
-                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --asterisks --cmd 'uwsm start hyprland-uwsm.desktop'";
-                user = "greeter";
-            };
-        };
-    };
+  # services.greetd = {
+  #       enable = true;
+  #       settings = {
+  #           default_session = {
+  #               # This drops you into a text-based login prompt.
+  #               # Once you log in, it automatically runs your UWSM Hyprland command.
+  #               command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --asterisks --cmd 'uwsm start hyprland-uwsm.desktop'";
+  #               user = "greeter";
+  #           };
+  #       };
+  #   };
 
     # Optional but recommended: This prevents boot messages from mixing 
     # with the login prompt on the screen.
-    systemd.services.greetd.serviceConfig = {
-        Type = "idle";
-        StandardInput = "tty";
-        StandardOutput = "tty";
-        StandardError = "journal"; 
-        TTYReset = true;
-        TTYVHangup = true;
-        TTYVTDisallocate = true;
-    }; 
+    # systemd.services.greetd.serviceConfig = {
+    #     Type = "idle";
+    #     StandardInput = "tty";
+    #     StandardOutput = "tty";
+    #     StandardError = "journal"; 
+    #     TTYReset = true;
+    #     TTYVHangup = true;
+    #     TTYVTDisallocate = true;
+    # }; 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     # programs.mtr.enable = true;
